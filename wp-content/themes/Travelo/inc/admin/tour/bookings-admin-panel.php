@@ -678,4 +678,4 @@ if ( ! function_exists( 'trav_tour_booking_admin_enqueue_scripts' ) ) {
     }
 }
 
-add_action( 'admin_menu', 'trav_tour_booking_add_menu_items' );
+//add_action( 'admin_menu', 'trav_tour_booking_add_menu_items' );

@@ -98,6 +98,7 @@ if ( have_posts() ) {
 								<?php endif; ?>
 
 							</div>
+                            <?php comments_template(); ?>
 						</div>
 					</div>
 

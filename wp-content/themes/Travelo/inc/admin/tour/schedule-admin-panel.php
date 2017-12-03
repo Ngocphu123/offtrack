@@ -488,4 +488,4 @@ if ( ! function_exists( 'trav_tour_schedule_admin_enqueue_scripts' ) ) {
 	}
 }
 
-add_action( 'admin_menu', 'trav_tour_schedule_add_menu_items' );
+//add_action( 'admin_menu', 'trav_tour_schedule_add_menu_items' );

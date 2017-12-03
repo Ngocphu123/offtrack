@@ -503,7 +503,7 @@ if ( ! function_exists( 'trav_register_tour_meta_boxes' ) ) {
 			'context' => 'normal',
 			'priority' => 'high',
 			'fields' => array(
-				array(
+				/*array(
 					'name'  => __( 'Type', 'trav' ),
 					'id'      => "{$prefix}types",
 					'desc'  => __( 'Select a tour type', 'trav' ),
@@ -514,7 +514,7 @@ if ( ! function_exists( 'trav_register_tour_meta_boxes' ) ) {
 						'type' => 'select_advanced',
 					),
 					// 'multiple' => true,
-				),
+				),*/
 				array(
 					'name'  => __( 'Minimum Price Per Person', 'trav' ),
 					'id'      => "{$prefix}min_price",
@@ -527,7 +527,7 @@ if ( ! function_exists( 'trav_register_tour_meta_boxes' ) ) {
 					'desc'  => __( 'This is tour brief field and the value is shown on search result page and detail page .', 'trav' ),
 					'type'  => 'textarea',
 				),
-				array(
+				/*array(
 					'name'  => __( 'Country', 'trav' ),
 					'id'      => "{$prefix}country",
 					'desc'  => __( 'Select a Country', 'trav' ),
@@ -554,7 +554,7 @@ if ( ! function_exists( 'trav_register_tour_meta_boxes' ) ) {
 						'depth' => 2,
 						'type' => 'select_advanced',
 					),
-				),
+				),*/
 				array(
 					'name'  => __( 'Neighborhood', 'trav' ),
 					'id'      => "{$prefix}neighborhood",
@@ -582,7 +582,7 @@ if ( ! function_exists( 'trav_register_tour_meta_boxes' ) ) {
 					'id'      => "{$prefix}email",
 					'type'  => 'text',
 				),
-				array(
+				/*array(
 					'name'  => __( 'Travel Guide', 'trav' ),
 					'id'      => "{$prefix}tg",
 					'type'  => 'post',
@@ -590,7 +590,7 @@ if ( ! function_exists( 'trav_register_tour_meta_boxes' ) ) {
 					'placeholder' => __( 'Select a Travel Guide', 'trav' ),
 					'field_type' => 'select_advanced',
 					'multiple' => false,
-				),
+				),*/
 				array(
 					'name'  => __( 'Security Deposit Amount(%)', 'trav' ),
 					'id'      => "{$prefix}security_deposit",
@@ -619,7 +619,7 @@ if ( ! function_exists( 'trav_register_tour_meta_boxes' ) ) {
 		);
 
 		//tour settings
-		$meta_boxes[] = array(
+		/*$meta_boxes[] = array(
 			'id' => 'tour_settings',
 			'title' => __( 'Tour Settings', 'trav' ),
 			'pages' => array( 'tour' ),
@@ -683,7 +683,7 @@ if ( ! function_exists( 'trav_register_tour_meta_boxes' ) ) {
 					'std' => array(),
 				),
 			)
-		);
+		);*/
 
 		$meta_boxes = apply_filters( 'trav_register_tour_meta_boxes', $meta_boxes );
 

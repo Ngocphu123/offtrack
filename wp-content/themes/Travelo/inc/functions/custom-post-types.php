@@ -132,7 +132,7 @@ if ( ! function_exists( 'trav_register_things_to_do_post_type' ) ) {
 			'rewrite' => array('slug' => 'things-to-do', 'with_front' => true)
 		);
 
-		register_post_type( 'things_to_do', $args );
+		//register_post_type( 'things_to_do', $args );
 	}
 }
 
@@ -178,7 +178,7 @@ if ( ! function_exists( 'trav_register_travel_guide_post_type' ) ) {
 			'rewrite' => array('slug' => 'travel-guide', 'with_front' => true)
 		);
 
-		register_post_type( 'travel_guide', $args );
+		//register_post_type( 'travel_guide', $args );
 	}
 }
 
@@ -244,7 +244,7 @@ if ( ! function_exists( 'trav_register_location_taxonomy' ) ) {
 				'show_admin_column' => true,
 				'meta_box_cb'       => false
 			);
-		register_taxonomy( 'location', array( 'accommodation', 'things_to_do', 'tour' ), $args );
+		//register_taxonomy( 'location', array( 'accommodation', 'things_to_do', 'tour' ), $args );
 	}
 }
 
@@ -315,7 +315,7 @@ if ( ! function_exists( 'trav_register_tour_post_type' ) ) {
 			'label'               => __( 'tour', 'trav' ),
 			'description'         => __( 'Tour information pages', 'trav' ),
 			'labels'              => $labels,
-			'supports'            => array( 'title', 'editor', 'thumbnail', 'author' ),
+			'supports'            => array( 'title', 'editor', 'comments', 'thumbnail', 'author' ),
 			'taxonomies'          => array( ),
 			'hierarchical'        => false,
 			'public'              => true,
@@ -364,7 +364,7 @@ if ( ! function_exists( 'trav_register_tour_type_taxonomy' ) ) {
 				'meta_box_cb'       => false,
 				'rewrite' => array('slug' => 'tour-type', 'with_front' => true)
 			);
-		register_taxonomy( 'tour_type', array( 'tour' ), $args );
+		//register_taxonomy( 'tour_type', array( 'tour' ), $args );
 	}
 }
 
