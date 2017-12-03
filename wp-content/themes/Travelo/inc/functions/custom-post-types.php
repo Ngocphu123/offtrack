@@ -39,7 +39,7 @@ if ( ! function_exists( 'trav_register_accommodation_post_type' ) ) {
 			'capability_type'     => 'accommodation',
 			'map_meta_cap'        => true,
 		);
-		register_post_type( 'accommodation', $args );
+		//register_post_type( 'accommodation', $args );
 	}
 }
 
@@ -86,7 +86,7 @@ if ( ! function_exists( 'trav_register_room_type_post_type' ) ) {
 		if ( current_user_can( 'manage_options' ) ) {
 			$args['show_in_menu'] = 'edit.php?post_type=accommodation';
 		}
-		register_post_type( 'room_type', $args );
+		//register_post_type( 'room_type', $args );
 	}
 }
 
@@ -211,7 +211,7 @@ if ( ! function_exists( 'trav_register_accommodation_type_taxonomy' ) ) {
 				'show_admin_column' => true,
 				'meta_box_cb'       => false
 			);
-		register_taxonomy( 'accommodation_type', array( 'accommodation' ), $args );
+		//register_taxonomy( 'accommodation_type', array( 'accommodation' ), $args );
 	}
 }
 
@@ -287,7 +287,7 @@ if ( ! function_exists( 'trav_register_amenity_taxonomy' ) ) {
 				'show_admin_column' => true,
 				'meta_box_cb'       => false
 			);
-		register_taxonomy( 'amenity', array( 'room_type', 'accommodation' ), $args );
+		//register_taxonomy( 'amenity', array( 'room_type', 'accommodation' ), $args );
 	}
 }
 
@@ -450,7 +450,7 @@ if ( ! function_exists( 'trav_user_capablilities' ) ) {
 }
 
 add_action( 'init', 'trav_init_custom_post_types', 0 );
-add_action('admin_menu', 'trav_hd_add_accommodation_box');
+//add_action('admin_menu', 'trav_hd_add_accommodation_box');
 add_action('admin_init', 'trav_user_capablilities');
 
 add_filter("manage_edit-location_columns", 'trav_tax_location_columns'); 

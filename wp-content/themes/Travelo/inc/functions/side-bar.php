@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 if ( ! function_exists( 'trav_register_sidebar' ) ) {
 	function trav_register_sidebar() {
 
-		$args = array(
+		/*$args = array(
 			'name'          => __( 'Blog Sidebar', 'trav' ),
 			'id'            => 'sidebar-post',
 			'description'   => '',
@@ -38,7 +38,17 @@ if ( ! function_exists( 'trav_register_sidebar' ) ) {
 			'after_widget'  => '</div>',
 			'before_title'  => '<h4 class="widgettitle">',
 			'after_title'   => '</h4>' );
-		register_sidebar( $args );
+		register_sidebar( $args );*/
+        $args = array(
+            'name'          => __( 'Category sidebar', 'trav' ),
+            'id'            => 'sidebar-cate',
+            'description'   => 'Show in category list',
+            'class'         => '',
+            'before_widget' => '<div id="%1$s" class="widget travelo-box %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h4 class="widgettitle">',
+            'after_title'   => '</h4>' );
+        register_sidebar( $args );
 
 		$args = array(
 			'name'          => __( 'Tour Sidebar', 'trav' ),
@@ -51,7 +61,7 @@ if ( ! function_exists( 'trav_register_sidebar' ) ) {
 			'after_title'   => '</h4>' );
 		register_sidebar( $args );
 
-		$args = array(
+		/*$args = array(
 			'name'          => __( 'Things To Do Sidebar', 'trav' ),
 			'id'            => 'sidebar-ttd',
 			'description'   => 'Things To Do post Default Sidebar',
@@ -71,7 +81,7 @@ if ( ! function_exists( 'trav_register_sidebar' ) ) {
 			'after_widget'  => '</div>',
 			'before_title'  => '<h4 class="widgettitle">',
 			'after_title'   => '</h4>' );
-		register_sidebar( $args );
+		register_sidebar( $args );*/
 
 		$args = array(
 			'name'          => __( 'Footer Widget 1', 'trav' ),
