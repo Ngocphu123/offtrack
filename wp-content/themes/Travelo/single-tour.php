@@ -109,6 +109,7 @@ if ( have_posts() ) {
 			</div>
 		</section>
 
+
 	<?php 
 	endwhile;
 }
