@@ -417,7 +417,7 @@ class sidebar_generator {
         return $did_sidebar;
     }
 }
-$sbg = new sidebar_generator;
+//$sbg = new sidebar_generator;
 
 function generated_dynamic_sidebar($name='0'){
     sidebar_generator::get_sidebar($name);

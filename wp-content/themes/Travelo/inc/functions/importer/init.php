@@ -352,4 +352,4 @@ class Travelo_Importer {
     }
 }
 
-$travelo_importer = new Travelo_Importer;
+//$travelo_importer = new Travelo_Importer;

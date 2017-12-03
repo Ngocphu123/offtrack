@@ -91,7 +91,7 @@ $args['share_icons'][] = array(
 );
 
 $args['intro_text'] = '';
-$args['footer_text'] = '&copy; 2015 Travelo';
+$args['footer_text'] = '&copy; 2017 Offtracktravel';
 
 Redux::setArgs( $opt_name, $args );
 
@@ -561,7 +561,7 @@ Redux::setSection( $opt_name, array(
 
 $desc = __('All price fields in admin panel will be considered in this currency', 'trav');
 require_once TRAV_INC_DIR . '/functions/currency.php';
-Redux::setSection( $opt_name, array(
+/*Redux::setSection( $opt_name, array(
     'title'      => __( 'Currency Settings', 'trav' ),
     'id'         => 'currency-settings',
     'icon'  => 'el el-usd',
@@ -630,7 +630,7 @@ Redux::setSection( $opt_name, array(
             'default'  => 'nodelimit-point'
         ),
     )
-) );
+) )*/;
 
 Redux::setSection( $opt_name, array(
     'title'      => __( 'Main Page Settings', 'trav' ),
@@ -665,7 +665,7 @@ Redux::setSection( $opt_name, array(
     )
 ) );
 
-Redux::setSection( $opt_name, array(
+/*Redux::setSection( $opt_name, array(
     'title' => __( 'Accommodation', 'trav' ),
     'id'    => 'accommodation-settings',
 ) );
@@ -984,7 +984,7 @@ Redux::setSection( $opt_name, array(
             'indent'    => false,
         ),
     ),
-) );
+) );*/
 
 
 Redux::setSection( $opt_name, array(
@@ -1280,7 +1280,7 @@ Redux::setSection( $opt_name, array(
 ) );
 
 // add-on compatibility
-$payment_add_on_settings = apply_filters( 'trav_options_payment_addon_settings', array() );
+/*$payment_add_on_settings = apply_filters( 'trav_options_payment_addon_settings', array() );
 if ( ! empty( $payment_add_on_settings ) ) {
     Redux::setSection( $opt_name, array(
         'title'      => __( 'Payment Add-On Settings', 'trav' ),
@@ -1288,7 +1288,7 @@ if ( ! empty( $payment_add_on_settings ) ) {
         'subsection' => true,
         'fields'     => $payment_add_on_settings
     ) );
-}
+}*/
 
 if ( class_exists( 'WooCommerce' ) ) { 
     Redux::setSection( $opt_name, array( 

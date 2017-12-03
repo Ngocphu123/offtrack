@@ -352,4 +352,4 @@ if ( ! function_exists( 'trav_currency_admin_enqueue_scripts' ) ) {
 	}
 }
 
-add_action( 'admin_menu', 'trav_currency_admin_add_menu_items' );
+//add_action( 'admin_menu', 'trav_currency_admin_add_menu_items' );
