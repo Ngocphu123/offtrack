@@ -3,3 +3,15 @@
  Description:  Travelo Child Theme
  Template:     Travelo
 */
+#header.style1 .logo{
+    top:0px;
+}
+nav.menu-main-menu-container {
+    float: right;
+}
+.container {
+ 
+}
+.chaser {
+    background: #01b7f2;
+}

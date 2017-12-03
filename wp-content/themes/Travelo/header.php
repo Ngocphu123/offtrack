@@ -106,6 +106,7 @@ global $trav_options, $logo_url, $my_account_page, $login_url, $signup_url, $red
 		$mobile_mini_menu .= '<li class="ribbon menu-color-skin">';
 		$langs = '<ul class="menu mini">';
 
+		
 		foreach ( $languages as $l ) {
 			if ( $l['active'] ) {
 				$mobile_mini_menu .= '<a href="#">' . $l['translated_name'] . '</a>';
