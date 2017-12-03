@@ -1229,7 +1229,7 @@ if ( ! empty( $tour_add_on_settings ) ) {
     ) );
 }
 
-Redux::setSection( $opt_name, array(
+/*Redux::setSection( $opt_name, array(
     'title' => __( 'Payment', 'trav' ),
     'id'    => 'payment-settings',
 ) );
@@ -1277,7 +1277,7 @@ Redux::setSection( $opt_name, array(
             'required' => array( 'acc_pay_paypal', '=', '1' ),
             'type' => 'text'),
     )
-) );
+) );*/
 
 // add-on compatibility
 /*$payment_add_on_settings = apply_filters( 'trav_options_payment_addon_settings', array() );

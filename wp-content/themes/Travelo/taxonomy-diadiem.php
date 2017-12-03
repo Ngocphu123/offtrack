@@ -62,19 +62,10 @@ $per_page = (isset($trav_options[ 'tour_posts' ]) && is_numeric($trav_options[ '
               ?>
               <?php if ( ! empty( $results ) ) { ?>
                 <div class="hotel-list list-wrapper">
-                  <div class="row image-box hotel listing-style1 add-clearfix">
+                  <div class="row image-box listing-style1 add-clearfix">
                     <?php
                       foreach($results as $result):
                         $acc_id = trav_acc_clang_id( $result->ID );
-                        $avg_price = get_post_meta( $acc_id, 'trav_accommodation_avg_price', true );
-                        $review = get_post_meta( trav_acc_org_id( $acc_id ), 'review', true );
-                        $review = ( ! empty( $review ) )?round( $review, 1 ):0;
-                        $brief = get_post_meta( $acc_id, 'trav_accommodation_brief', true );
-                        if ( empty( $brief ) ) {
-                            $brief = apply_filters('the_content', get_post_field('post_content', $acc_id));
-                            $brief = wp_trim_words( $brief, 20, '' );
-                        }
-                        $loc = get_post_meta( $acc_id, 'trav_accommodation_loc', true );
                         $url = esc_url(get_permalink( $acc_id ));
                     ?>
                       <div class="col-sm-6 col-md-4">
@@ -84,17 +75,16 @@ $per_page = (isset($trav_options[ 'tour_posts' ]) && is_numeric($trav_options[ '
                           </figure>
                           <div class="details">
                   <span class="price">
-                      <small><?php _e( 'avg/night', 'trav' ) ?></small><?php echo esc_html( trav_get_price_field( $avg_price ) ); ?>
+                      <small><?php _e( 'avg/night', 'trav' ) ?></small><?php //echo esc_html( trav_get_price_field( $review ) ); ?>
                   </span>
-                    <h4 class="box-title"><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( get_the_title( $acc_id ) );?></a><?php echo trav_acc_get_star_rating( $acc_id ); ?><small><?php echo esc_html( trav_acc_get_city( $acc_id ) . ' ' . trav_acc_get_country( $acc_id ) ); ?></small></h4>
+                    <h4 class="box-title"><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( get_the_title( $acc_id ) );?></a><?php //echo trav_acc_get_star_rating( $acc_id ); ?><small><?php //echo esc_html( trav_acc_get_city( $acc_id ) . ' ' . trav_acc_get_country( $acc_id ) ); ?></small></h4>
                     <div class="feedback">
-                      <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="<?php echo esc_attr( $review . ' ' . __( 'stars', 'trav' ) ) ?>"><span style="width: <?php echo esc_html( $review / 5 * 100 ) ?>%;" class="five-stars"></span></div>
-                      <span class="review"><?php echo esc_html( trav_get_review_count( $acc_id ) . ' ' .  __('reviews', 'trav') ); ?></span>
+                      <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="<?php //echo esc_attr( $review . ' ' . __( 'stars', 'trav' ) ) ?>"><span style="width: <?php //echo esc_html( $review / 5 * 100 ) ?>%;" class="five-stars"></span></div>
+                      <span class="review"><?php //echo esc_html( trav_get_review_count( $acc_id ) . ' ' .  __('reviews', 'trav') ); ?></span>
                     </div>
-                    <p class="description"><?php echo wp_kses_post( $brief ); ?></p>
+                    <p class="description"><?php //echo wp_kses_post( $brief ); ?></p>
                     <div class="action">
-                      <a title="<?php _e( 'View Detail', 'trav' ); ?>" class="button btn-small" href="<?php echo esc_url( $url ); ?>"><?php _e( 'SELECT', 'trav' ); ?></a>
-                      <a title="<?php _e( 'View On Map', 'trav' ); ?>" class="button btn-small yellow popup-map" href="#" data-box="<?php echo esc_attr( $loc ) ?>"><?php _e( 'VIEW ON MAP', 'trav' ); ?></a>
+                      <a title="<?php _e( 'View Detail', 'trav' ); ?>" class="button btn-small full-width" href="<?php echo esc_url( $url ); ?>"><?php _e( 'View Detail', 'trav' ); ?></a>
                     </div>
                   </div>
                 </article>
