@@ -106,6 +106,112 @@ if ( have_posts() ) {
 						<?php generated_dynamic_sidebar(); ?>
 					</div>
 				</div>
+        <div class="row">
+          <div class="col-sm-12 ">
+            <div class="container section">
+              <div>
+                <h2>CÁC TOUR TƯƠNG TỰ</h2>
+
+              </div>
+                <?php
+                // get the custom post type's taxonomy terms
+                global $post;
+                $custom_taxterms = wp_get_object_terms( $post->ID, 'diadiem', array('fields' => 'ids') );
+                // arguments
+                $args = array(
+                    'post_type' => 'tour',
+                    'post_status' => 'publish',
+                    'posts_per_page' => 4, // you may edit this number
+                    'orderby' => 'rand',
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'diadiem',
+                            'field' => 'id',
+                            'terms' => $custom_taxterms
+                        )
+                    ),
+                    'post__not_in' => array ($post->ID),
+                );
+                $related_items = new WP_Query( $args );
+                // loop over query
+                if ($related_items->have_posts()) :
+                    echo '<div class="cruise-list image-box style3 cruise listing-style1">
+                <div class="row  add-clearfix">';
+                    while ( $related_items->have_posts() ) : $related_items->the_post();
+                        $acc_id = trav_acc_clang_id( $related_items->post->ID );
+                        $url = esc_url(get_permalink( $acc_id ));
+                      ?>
+                      <div class="col-sm-6 col-md-3">
+                        <article class="box">
+                          <figure>
+                            <a title="<?php _e( 'View Photo Gallery', 'trav' ); ?>" class="hover-effect " data-post_id="<?php echo esc_attr( $acc_id );?>" href="<?php echo esc_url( $url );?>"><?php echo get_the_post_thumbnail( $acc_id, 'gallery-thumb' ); ?></a>
+                          </figure>
+                          <div class="details">
+                            <span class="price">
+                              <?php
+                              $html_price = '';
+                              if (get_field("prices", $acc_id)) {
+                                  $html_price .= '<small>Giá Chỉ </small>';
+                                  $html_price .= number_format_i18n(get_field("prices", $acc_id)) . ' vnđ';
+                              } else {
+                                  $html_price .= '<small>Giá</small>';
+                                  $html_price .= 'Liên hệ';
+                              }
+                              echo $html_price;
+                              ?>
+                            </span>
+                            <h4 class="box-title"><a href="<?php echo esc_url( $url );?>"><?php echo esc_html( get_the_title( $acc_id ) );?></a><small><?php echo (!empty(get_field("times", $acc_id))) ? get_field("times", $acc_id) : ''; ?></small></h4>
+                            <div class="feedback">
+                              <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" data-original-title="" title="">
+                                <span style="width:80%" class="five-stars"></span>
+                              </div>
+                              <!--<span class="review">1221 View</span>-->
+                            </div>
+                            <div class="row time">
+                              <div class="date col-xs-6">
+                                <i class="soap-icon-clock yellow-color"></i>
+                                <div>
+                                  <span class="skin-color">Khởi Hành</span><br><?php echo (!empty(get_field("itinerary", $acc_id))) ? get_field("itinerary", $acc_id) : ''; ?>
+                                </div>
+                              </div>
+                              <div class="departure col-xs-6">
+                                <i class="soap-icon-departure yellow-color"></i>
+                                <div>
+                                  <span class="skin-color">Địa Điểm</span><br><?php echo (!empty(get_field("locations", $acc_id))) ? get_field("locations", $acc_id) : ''; ?>
+                                </div>
+                              </div>
+                            </div>
+                            <p class="description fourty-space">
+                              Phương Tiện: <span class="skin-color">
+                                <?php
+                                $field = get_field_object('transportation', $acc_id);
+                                $transportations = $field['value'];
+                                if ($transportations) {
+                                    $phuong_tien = '';
+                                    foreach ($transportations as $pt):
+                                        $phuong_tien .= ', '.$field['choices'][ $pt ];
+                                    endforeach;
+                                    echo ltrim($phuong_tien,',');
+                                }
+                                ?></span></p>
+                            <div class="action">
+                              <a class="button btn-small full-width" href="<?php echo esc_url( $url );?>">XEM TOUR</a>
+                            </div>
+                          </div>
+                        </article>
+                      </div>
+                        <?php
+                    endwhile;
+                    echo ' </div>
+            </div>';
+                endif;
+                // Reset Post Data
+                wp_reset_postdata();
+
+                ?>
+
+          </div>
+        </div>
 			</div>
 		</section>
 

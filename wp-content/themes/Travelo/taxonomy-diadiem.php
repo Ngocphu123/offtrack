@@ -71,7 +71,7 @@ $per_page = (isset($trav_options[ 'tour_posts' ]) && is_numeric($trav_options[ '
                       <div class="col-sm-6 col-md-4">
                         <article class="box">
                           <figure>
-                            <a title="<?php _e( 'View Photo Gallery', 'trav' ); ?>" class="hover-effect popup-gallery" data-post_id="<?php echo esc_attr( $acc_id );?>" href="#"><?php echo get_the_post_thumbnail( $acc_id, 'gallery-thumb' ); ?></a>
+                            <a title="<?php _e( 'View Photo Gallery', 'trav' ); ?>" class="hover-effect " data-post_id="<?php echo esc_attr( $acc_id );?>" href="<?php echo esc_url( $url );?>"><?php echo get_the_post_thumbnail( $acc_id, 'gallery-thumb' ); ?></a>
                           </figure>
                           <div class="details">
                             <span class="price">
@@ -122,24 +122,10 @@ $per_page = (isset($trav_options[ 'tour_posts' ]) && is_numeric($trav_options[ '
                                   }
                                 ?></span></p>
                             <div class="action">
-                              <a class="button btn-small full-width" href="/tour-trong-nuoc/tour-binh-ba/du-lich-binh-ba-88-373.htm">XEM TOUR</a>
+                              <a class="button btn-small full-width" href="<?php echo esc_url( $url );?>">XEM TOUR</a>
                             </div>
                           </div>
-                         <!-- <div class="details">
-                  <span class="price">
-                      <small><?php /*_e( 'avg/night', 'trav' ) */?></small><?php /*//echo esc_html( trav_get_price_field( $review ) ); */?>
-                  </span>
-                    <h4 class="box-title"><a href="<?php /*echo esc_url( $url ); */?>"><?php /*echo esc_html( get_the_title( $acc_id ) );*/?></a><?php /*//echo trav_acc_get_star_rating( $acc_id ); */?><small><?php /*//echo esc_html( trav_acc_get_city( $acc_id ) . ' ' . trav_acc_get_country( $acc_id ) ); */?></small></h4>
-                    <div class="feedback">
-                      <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="<?php /*//echo esc_attr( $review . ' ' . __( 'stars', 'trav' ) ) */?>"><span style="width: <?php /*//echo esc_html( $review / 5 * 100 ) */?>%;" class="five-stars"></span></div>
-                      <span class="review"><?php /*//echo esc_html( trav_get_review_count( $acc_id ) . ' ' .  __('reviews', 'trav') ); */?></span>
-                    </div>
-                    <p class="description"><?php /*//echo wp_kses_post( $brief ); */?></p>
-                    <div class="action">
-                      <a title="<?php /*_e( 'View Detail', 'trav' ); */?>" class="button btn-small full-width" href="<?php /*echo esc_url( $url ); */?>"><?php /*_e( 'View Detail', 'trav' ); */?></a>
-                    </div>
-                  </div>-->
-                </article>
+                      </article>
                     </div>
                     <?php endforeach; ?>
                 </div>
