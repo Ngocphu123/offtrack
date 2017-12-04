@@ -61,8 +61,8 @@ $per_page = (isset($trav_options[ 'tour_posts' ]) && is_numeric($trav_options[ '
               );
               ?>
               <?php if ( ! empty( $results ) ) { ?>
-                <div class="hotel-list list-wrapper">
-                  <div class="row image-box listing-style1 add-clearfix">
+                <div class="cruise-list image-box style3 cruise listing-style1">
+                  <div class="row  add-clearfix">
                     <?php
                       foreach($results as $result):
                         $acc_id = trav_acc_clang_id( $result->ID );
@@ -74,19 +74,71 @@ $per_page = (isset($trav_options[ 'tour_posts' ]) && is_numeric($trav_options[ '
                             <a title="<?php _e( 'View Photo Gallery', 'trav' ); ?>" class="hover-effect popup-gallery" data-post_id="<?php echo esc_attr( $acc_id );?>" href="#"><?php echo get_the_post_thumbnail( $acc_id, 'gallery-thumb' ); ?></a>
                           </figure>
                           <div class="details">
+                            <span class="price">
+                              <?php
+                                $html_price = '';
+                                if (get_field("prices", $acc_id)) {
+                                    $html_price .= '<small>Giá Chỉ </small>';
+                                    $html_price .= number_format_i18n(get_field("prices", $acc_id)) . ' vnđ';
+                                } else {
+                                    $html_price .= '<small>Giá</small>';
+                                    $html_price .= 'Liên hệ';
+                                }
+                                echo $html_price;
+                              ?>
+                            </span>
+                            <h4 class="box-title"><a href="<?php echo esc_url( $url );?>"><?php echo esc_html( get_the_title( $acc_id ) );?></a><small><?php echo (!empty(get_field("times", $acc_id))) ? get_field("times", $acc_id) : ''; ?></small></h4>
+                            <div class="feedback">
+                              <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" data-original-title="" title="">
+                                <span style="width:80%" class="five-stars"></span>
+                              </div>
+                              <!--<span class="review">1221 View</span>-->
+                            </div>
+                            <div class="row time">
+                              <div class="date col-xs-6">
+                                <i class="soap-icon-clock yellow-color"></i>
+                                <div>
+                                  <span class="skin-color">Khởi Hành</span><br><?php echo (!empty(get_field("itinerary", $acc_id))) ? get_field("itinerary", $acc_id) : ''; ?>
+                                </div>
+                              </div>
+                              <div class="departure col-xs-6">
+                                <i class="soap-icon-departure yellow-color"></i>
+                                <div>
+                                  <span class="skin-color">Địa Điểm</span><br><?php echo (!empty(get_field("locations", $acc_id))) ? get_field("locations", $acc_id) : ''; ?>
+                                </div>
+                              </div>
+                            </div>
+                            <p class="description fourty-space">
+                              Phương Tiện: <span class="skin-color">
+                                <?php
+                                $field = get_field_object('transportation', $acc_id);
+                                $transportations = $field['value'];
+                                  if ($transportations) {
+                                    $phuong_tien = '';
+                                    foreach ($transportations as $pt):
+                                        $phuong_tien .= ', '.$field['choices'][ $pt ];
+                                    endforeach;
+                                    echo ltrim($phuong_tien,',');
+                                  }
+                                ?></span></p>
+                            <div class="action">
+                              <a class="button btn-small full-width" href="/tour-trong-nuoc/tour-binh-ba/du-lich-binh-ba-88-373.htm">XEM TOUR</a>
+                            </div>
+                          </div>
+                         <!-- <div class="details">
                   <span class="price">
-                      <small><?php _e( 'avg/night', 'trav' ) ?></small><?php //echo esc_html( trav_get_price_field( $review ) ); ?>
+                      <small><?php /*_e( 'avg/night', 'trav' ) */?></small><?php /*//echo esc_html( trav_get_price_field( $review ) ); */?>
                   </span>
-                    <h4 class="box-title"><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( get_the_title( $acc_id ) );?></a><?php //echo trav_acc_get_star_rating( $acc_id ); ?><small><?php //echo esc_html( trav_acc_get_city( $acc_id ) . ' ' . trav_acc_get_country( $acc_id ) ); ?></small></h4>
+                    <h4 class="box-title"><a href="<?php /*echo esc_url( $url ); */?>"><?php /*echo esc_html( get_the_title( $acc_id ) );*/?></a><?php /*//echo trav_acc_get_star_rating( $acc_id ); */?><small><?php /*//echo esc_html( trav_acc_get_city( $acc_id ) . ' ' . trav_acc_get_country( $acc_id ) ); */?></small></h4>
                     <div class="feedback">
-                      <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="<?php //echo esc_attr( $review . ' ' . __( 'stars', 'trav' ) ) ?>"><span style="width: <?php //echo esc_html( $review / 5 * 100 ) ?>%;" class="five-stars"></span></div>
-                      <span class="review"><?php //echo esc_html( trav_get_review_count( $acc_id ) . ' ' .  __('reviews', 'trav') ); ?></span>
+                      <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="<?php /*//echo esc_attr( $review . ' ' . __( 'stars', 'trav' ) ) */?>"><span style="width: <?php /*//echo esc_html( $review / 5 * 100 ) */?>%;" class="five-stars"></span></div>
+                      <span class="review"><?php /*//echo esc_html( trav_get_review_count( $acc_id ) . ' ' .  __('reviews', 'trav') ); */?></span>
                     </div>
-                    <p class="description"><?php //echo wp_kses_post( $brief ); ?></p>
+                    <p class="description"><?php /*//echo wp_kses_post( $brief ); */?></p>
                     <div class="action">
-                      <a title="<?php _e( 'View Detail', 'trav' ); ?>" class="button btn-small full-width" href="<?php echo esc_url( $url ); ?>"><?php _e( 'View Detail', 'trav' ); ?></a>
+                      <a title="<?php /*_e( 'View Detail', 'trav' ); */?>" class="button btn-small full-width" href="<?php /*echo esc_url( $url ); */?>"><?php /*_e( 'View Detail', 'trav' ); */?></a>
                     </div>
-                  </div>
+                  </div>-->
                 </article>
                     </div>
                     <?php endforeach; ?>

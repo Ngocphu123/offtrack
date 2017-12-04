@@ -15,3 +15,12 @@ nav.menu-main-menu-container {
 .chaser {
     background: #01b7f2;
 }
+
+/* Style for category list */
+.listing-style1.cruise .description{
+    margin-bottom: 10px !important;
+}
+
+.a.button {
+    background: #01b7f2;
+}
