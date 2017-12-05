@@ -34,3 +34,24 @@ a.button {
     background: #01b7f2;
 }
 
+.widget_travcategorywidget{
+    background: none !important;
+    padding: 0;
+}
+.filters-container.toggle-container .panel.style1{
+    background: none;
+}
+.filters-container.toggle-container .panel.style1 .panel-title{
+    margin-bottom: 4px;
+    background: #fff;
+}
+
+.sort-by-section .sort-by-title {
+    margin: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.price{
+
+}
+

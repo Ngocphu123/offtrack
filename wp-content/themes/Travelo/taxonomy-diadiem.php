@@ -14,26 +14,7 @@ $per_page = (isset($trav_options[ 'tour_posts' ]) && is_numeric($trav_options[ '
       <div id="main">
         <div class="row">
           <div class="col-sm-4 col-md-3">
-            <div class="toggle-container style1 filters-container">
-              <?php
-              $terms = get_terms(array(
-                  'taxonomy'   => 'diadiem',
-                  'hide_empty' => false,
-                  'orderby'    => 'id'
-              ));
-              ?>
-                <div class="panel style1 arrow-right">
-                    <?php if (!empty($terms)):
-                        foreach ($terms as $term):
-                            ?>
-                          <h4 class="panel-title"><a href="<?php echo get_term_link($term); ?>" class="collapsed"><?php echo $term->name ?></a></h4>
-                            <?php
-                        endforeach;
-                    endif;
-                    ?>
-                </div>
-
-            </div>
+            <?php generated_dynamic_sidebar("sidebar-cate"); ?>
           </div>
           <div class="col-sm-8 col-md-9">
             <div class="sort-by-section clearfix box">

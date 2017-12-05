@@ -974,6 +974,66 @@ class TravLatestTourWidget extends WP_Widget {
 }
 endif;
 
+if (!class_exists('TravCategoryWidget')) :
+    class TravCategoryWidget extends WP_Widget
+    {
+        function __construct() {
+            parent::__construct( false, 'Travelo show category Tours' );
+        }
+
+        function widget($args, $instance) {
+            extract($args);
+            $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']);
+            echo wp_kses_post( $before_widget );
+            if ( ! empty( $title ) ) { echo wp_kses_post( $before_title . esc_html( $title ) . $after_title ); };
+
+            /* Begin code list menu */
+            $terms = get_terms(array(
+                'taxonomy'   => 'diadiem',
+                'hide_empty' => false,
+                'orderby'    => 'id'
+            ));
+
+            if(!empty($terms)){
+              $html_menu = '<div class="toggle-container style1 filters-container">
+                              <div class="panel style1 arrow-right">';
+              foreach ($terms as $term){
+                if($term->parent == 0){
+                    $term_id = $term->term_id;
+                    $html_menu .= '<h4 class="panel-title"><a style="font-weight: bold;" href="'.get_term_link($term).'" class="collapsed">'.$term->name .'</a></h4>';
+                    foreach ($terms as $sub_term){
+                      if($sub_term->parent == $term_id){
+                          $html_menu .= '<h4 class="panel-title"><a href="'.get_term_link($sub_term).'" class="collapsed">'.$sub_term->name .'</a></h4>';
+                      }
+                    }
+                }
+              } // End loop
+                $html_menu .= '</div>
+                            </div>';
+              echo $html_menu;
+            }
+
+            echo wp_kses_post( $after_widget );
+        }
+
+        function update($new_instance, $old_instance) {
+            $instance = $old_instance;
+            $instance['title'] = strip_tags($new_instance['title']);
+            return $instance;
+        }
+
+        function form($instance) {
+          $instance = wp_parse_args( (array) $instance, array( 'title' => '', 'count' => '', 'cat' => '', 'excerpt'=>'' ) );
+          $title = strip_tags($instance['title']); ?>
+          <p>
+            <label for="<?php echo esc_attr( $this->get_field_id('title') ); ?>"><?php echo __( 'Title', 'trav' ); ?>:</label>
+            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id('title') ); ?>" name="<?php echo esc_attr( $this->get_field_name('title') ); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
+          </p>
+            <?php
+        }
+
+    }
+endif;
 function trav_add_one_half_nav_class( $classes, $item ) {
 	$classes[] = 'col-xs-6';
 	return $classes;
@@ -982,12 +1042,13 @@ function trav_add_one_half_nav_class( $classes, $item ) {
 function trav_register_widgets() {
 	register_widget( 'TravContactWidget' );
 	register_widget( 'TravTabsWidget' );
-	register_widget( 'TravTweetsWidget' );
+	//register_widget( 'TravTweetsWidget' );
 	register_widget( 'TravNewsWidget' );
 	register_widget( 'TravSocialLinksWidget' );
 	register_widget( 'TravNavMenuWidget' );
-	register_widget( 'TravSimilarAccWidget' );
+	//register_widget( 'TravSimilarAccWidget' );
 	register_widget( 'TravLatestTourWidget' );
+	register_widget( 'TravCategoryWidget' );
 }
 
 add_action( 'widgets_init', 'trav_register_widgets' );
