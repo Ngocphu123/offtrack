@@ -3,6 +3,15 @@
  Description:  Travelo Child Theme
  Template:     Travelo
 */
+body {
+    font: 75%/150% "Segoe UI",sans-serif;
+    background-color: #fff;
+    color: #838383;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -ms-overflow-style: scrollbar;
+    oveflow-y: scroll;
+}
 #header.style1 .logo{
     top:0px;
 }
@@ -24,3 +33,4 @@ nav.menu-main-menu-container {
 a.button {
     background: #01b7f2;
 }
+
