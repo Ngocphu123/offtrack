@@ -68,3 +68,6 @@ a.button {
     text-transform: inherit;
     font-size: 1em;
 }
+.image-box.style3 .details .box-title{
+    margin-bottom: 5px;
+}
