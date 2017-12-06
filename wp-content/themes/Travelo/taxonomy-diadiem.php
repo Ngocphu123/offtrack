@@ -23,9 +23,6 @@ $per_page = (isset($trav_options[ 'tour_posts' ]) && is_numeric($trav_options[ '
               <?php
               $cat   =  get_queried_object();
               $count = $cat->count;
-             // foreach ( $categories as $cat ) {
-// here's my code for getting the posts for custom post type
-
               $results = get_posts(
                   array(
                       'posts_per_page' => $per_page,
@@ -112,27 +109,24 @@ $per_page = (isset($trav_options[ 'tour_posts' ]) && is_numeric($trav_options[ '
                 </div>
 
               <?php
-
-                  $pagenum_link = strtok( $_SERVER["REQUEST_URI"], '?' ) . '%_%';
-                  $total = ceil( $count / $per_page );
-                  $args = array(
-                      'base' => $pagenum_link, // http://example.com/all_posts.php%_% : %_% is replaced by format (below)
-                      'total' => $total,
-                      'format' => '?page=%#%',
-                      'current' => $page,
-                      'show_all' => false,
-                      'prev_next' => true,
-                      'prev_text' => __('Previous', 'trav'),
-                      'next_text' => __('Next', 'trav'),
-                      'end_size' => 1,
-                      'mid_size' => 2,
-                      'type' => 'list',
-                      //'add_args' => $_GET,
-                  );
-                  echo paginate_links( $args );
-
+                $pagenum_link = strtok( $_SERVER["REQUEST_URI"], '?' ) . '%_%';
+                $total = ceil( $count / $per_page );
+                $args = array(
+                    'base' => $pagenum_link, // http://example.com/all_posts.php%_% : %_% is replaced by format (below)
+                    'total' => $total,
+                    'format' => '?page=%#%',
+                    'current' => $page,
+                    'show_all' => false,
+                    'prev_next' => true,
+                    'prev_text' => __('Previous', 'trav'),
+                    'next_text' => __('Next', 'trav'),
+                    'end_size' => 1,
+                    'mid_size' => 2,
+                    'type' => 'list',
+                    //'add_args' => $_GET,
+                );
+                echo paginate_links( $args );
               ?>
-
           </div>
             <?php } else { ?>
               <div class="travelo-box"><?php _e( 'No available accommodations', 'trav' );?></div>
@@ -145,5 +139,4 @@ $per_page = (isset($trav_options[ 'tour_posts' ]) && is_numeric($trav_options[ '
   </section>
 
 <?php
-
 get_footer();

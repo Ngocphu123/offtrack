@@ -51,7 +51,20 @@ a.button {
     font-weight: bold;
     text-transform: uppercase;
 }
-.price{
-
+.widget_tag_cloud a{
+    display: inline-block;
+    text-decoration: none;
+    background: #01b7f2;
+    color: #FFF;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    opacity: 1;
 }
-
+.widget_tag_cloud a:hover{
+    opacity: 0.8;
+}
+.listing-style1.cruise .description{
+    text-align: left;
+    text-transform: inherit;
+    font-size: 1em;
+}
