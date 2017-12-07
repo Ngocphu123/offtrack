@@ -144,7 +144,7 @@ if ( have_posts() ) :
 
                                     <div class="form-group col-sm-6 col-md-2 fixheight">
                                         <label class="hidden-xs">&nbsp;</label>
-                                        <button type="submit" class="full-width icon-check animated" data-animation-type="bounce" data-animation-duration="1"><?php _e( 'SEARCH NOW', 'trav') ?></button>
+                                        <button type="submit" class="full-width icon-check animated" data-animation-type="bounce" data-animation-duration="1"><?php _e( 'Tìm kiếm ngay', 'trav') ?></button>
                                     </div>
                                 </div>
                             </form>
@@ -166,16 +166,16 @@ if ( have_posts() ) :
                                         <input type="text" name="s" class="input-text full-width" placeholder="<?php _e( 'Enter a destination or tour name', 'trav') ?>" />
                                     </div>
                                     <div class="form-group col-sm-6 col-md-3 fixheight">
-                                        <?php $trip_types = get_terms( 'tour_type' ); ?>
+                                        <?php $danhsach_diadiem = get_terms( 'diadiem' ); ?>
                                         <div class="row">
-                                            <?php if ( ! empty( $trip_types ) ) : ?>
+                                            <?php if ( ! empty( $danhsach_diadiem ) ) : ?>
                                                 <div class="col-xs-6">
-                                                    <label><?php _e( 'Trip Type', 'trav' ) ?></label>
+                                                    <label><?php _e( 'Bạn muốn đến đâu', 'trav' ) ?></label>
                                                     <div class="selector">
-                                                        <select name="tour_types" class="full-width">
-                                                            <option value=""><?php _e( 'Trip Type', 'trav' ) ?></option>
-                                                            <?php foreach ( $trip_types as $trip_type ) : ?>
-                                                                <option value="<?php echo $trip_type->term_id ?>"><?php _e( $trip_type->name, 'trav' ) ?></option>
+                                                        <select name="diadiem" class="full-width">
+                                                            <option value=""><?php _e( 'Tất cả', 'trav' ) ?></option>
+                                                            <?php foreach ( $danhsach_diadiem as $diadiem ) : ?>
+                                                                <option value="<?php echo $diadiem->term_id ?>"><?php _e( $diadiem->name, 'trav' ) ?></option>
                                                             <?php endforeach; ?>
                                                         </select>
                                                     </div>
@@ -185,7 +185,7 @@ if ( have_posts() ) :
                                     </div>
                                     <div class="form-group col-sm-6 col-md-2 fixheight">
                                         <label class="hidden-xs">&nbsp;</label>
-                                        <button type="submit" class="full-width icon-check animated" data-animation-type="bounce" data-animation-duration="1"><?php _e( 'SEARCH NOW', 'trav') ?></button>
+                                        <button type="submit" class="full-width icon-check animated" data-animation-type="bounce" data-animation-duration="1"><?php _e( 'Tìm kiếm ngay', 'trav') ?></button>
                                     </div>
                                 </div>
                             </form>
