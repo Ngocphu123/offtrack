@@ -67,8 +67,15 @@ $per_page = (isset($trav_options[ 'tour_posts' ]) && is_numeric($trav_options[ '
                             </span>
                             <h4 class="box-title"><a href="<?php echo esc_url( $url );?>"><?php echo esc_html( get_the_title( $acc_id ) );?></a><small><?php echo (!empty(get_field("times", $acc_id))) ? get_field("times", $acc_id) : ''; ?></small></h4>
                             <div class="feedback">
+                                <?php
+                                $star = REVIEW_POINT_DEFAULT;
+                                $reviews = get_field('reviews', $acc_id);
+                                if (!empty($reviews)) {
+                                    $star = ONE_STAR_POINT_ * intval($reviews);
+                                }
+                                ?>
                               <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" data-original-title="" title="">
-                                <span style="width:80%" class="five-stars"></span>
+                                <span style="width:<?php echo $star?>%" class="five-stars"></span>
                               </div>
                               <!--<span class="review">1221 View</span>-->
                             </div>

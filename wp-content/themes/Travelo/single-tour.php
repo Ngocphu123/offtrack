@@ -14,20 +14,6 @@ if ( have_posts() ) {
 
 		//init variables
 		$tour_id = get_the_ID();
-		//$city = trav_tour_get_city( $tour_id );
-		//$country = trav_tour_get_country( $tour_id );
-
-		//$date_from = ( isset( $_GET['date_from'] ) ) ? trav_tophptime( $_GET['date_from'] ) : date( trav_get_date_format('php') );
-		//$date_to = ( isset( $_GET['date_to'] ) ) ? trav_tophptime( $_GET['date_to'] ) : date( trav_get_date_format('php'), trav_strtotime( $date_from ) + 86400 * 30 );
-		//$repeated = get_post_meta( $tour_id, 'trav_tour_repeated', true );
-		//$multi_book = get_post_meta( $tour_id, 'trav_tour_multi_book', true );
-		//$isv_setting = get_post_meta( $tour_id, 'trav_post_media_type', true );
-		//$discount = get_post_meta( $tour_id, 'trav_tour_hot', true );
-		//$discount_rate = get_post_meta( $tour_id, 'trav_tour_discount_rate', true );
-		//$sc_list_pos = get_post_meta( $tour_id, 'trav_tour_sl_first', true );
-
-		//$schedule_types = trav_tour_get_schedule_types( $tour_id );
-
 		// add to user recent activity
 		trav_update_user_recent_activity( $tour_id ); ?>
 
@@ -37,84 +23,44 @@ if ( have_posts() ) {
 					<div id="main" class="col-sm-8 col-md-9">
 						<div <?php post_class(); ?>>
 							<div class="image-box">
-								<?php if ( ! empty( $discount ) && ! empty( $discount_rate ) ) : ?>
-									<span class="discount"><span class="discount-text"><?php echo esc_html( $discount_rate ) ?>% Discount</span></span>
-								<?php endif; ?>
-								<?php trav_post_gallery( $tour_id ) ?>
+								<?php //trav_post_gallery( $tour_id ) ?>
 							</div>
 
 							<div id="tour-details" class="travelo-box">
-                              <div class="intro2 small-box border-box table-wrapper hidden-table-sms">
-                                <div class="image-container table-cell"><img src="https://scontent.fsgn3-1.fna.fbcdn.net/v/t1.0-9/22687679_447154462346867_6175907620238880230_n.jpg?oh=b2cac4e77e596d14bce2dcf49b6f0587&amp;oe=5A734B05" alt="Du Lịch Singapore"></div>
-                                <div class="table-cell">
-                                  <dl class="term-description">
-                                    <dt>Địa điểm:</dt><dd style="color:#6ac610">Singapore</dd>
-                                    <dt>Khởi hành:</dt><dd style="color:#6ac610">Hằng Tuần</dd>
-                                    <dt>Thời gian:</dt><dd style="color:#6ac610">3 ngày 2 đêm</dd>
-                                    <dt>Giá:</dt><dd style="color:#6ac610">9.980.000 vnđ/khách</dd>
-                                  </dl>
-                                </div>
-                                <div class="price-section table-cell"><br><br>Giá chỉ
-                                  <div class="price"><div style="color:red" class="price-per-unit">9.980.000 vnđ/khách</div></div>
-                                  <a style="background:#01b7f2" href="/lien-he.htm" class="button green btn-small uppercase">Đặt Tour</a>
-                                  <p>Giảm 30% cho 100 tour đầu    </p>
-                                </div>
-                              </div>
-								<?php if ( ! empty( $repeated ) ): ?>
-									<form id="check_availability_form" method="post">
-										<input type="hidden" name="tour_id" value="<?php echo esc_attr( $tour_id ); ?>">
-										<input type="hidden" name="action" value="tour_get_available_schedules">
-										<?php wp_nonce_field( 'post-' . $tour_id, '_wpnonce', false ); ?>
-										<div class="update-search clearfix">
-											<div class="alert alert-error" style="display:none;"><span class="message"><?php _e( 'Please select check in date.','trav' ); ?></span><span class="close"></span></div>
-											<h4><?php _e( 'Check Availability', 'trav' ) ?></h4>
-											<div class="col-md-6">
-												<div class="row">
-													<div class="col-xs-6">
-														<label><?php _e( 'From','trav' ); ?></label>
-														<div class="datepicker-wrap validation-field from-today">
-															<input name="date_from" type="text" placeholder="<?php echo trav_get_date_format('html'); ?>" class="input-text full-width" value="<?php echo $date_from; ?>" />
-														</div>
-													</div>
-													<div class="col-xs-6">
-														<label><?php _e( 'To','trav' ); ?></label>
-														<div class="datepicker-wrap validation-field from-today">
-															<input name="date_to" type="text" placeholder="<?php echo trav_get_date_format('html'); ?>" class="input-text full-width" value="<?php echo $date_to;?>" />
-														</div>
-													</div>
-												</div>
-											</div>
-
-											<div class="col-md-3">
-												<label class="visible-md visible-lg">&nbsp;</label>
-												<div class="row">
-													<div class="col-xs-12">
-														<button id="check_availability" data-animation-duration="1" data-animation-type="bounce" class="full-width icon-check animated bounce" type="submit"><?php _e( "UPDATE", "trav" ); ?></button>
-													</div>
-												</div>
-											</div>
-										</div>
-									</form>
-								<?php endif; ?>
-
-								<?php if ( empty( $sc_list_pos ) ) : ?>
-
-									<div class="entry-content"><?php the_content(); ?></div>
-									<div id="schedule-list">
-										<?php trav_tour_get_schedule_list_html( array( 'tour_id'=>$tour_id, 'date_from'=>$date_from, 'date_to'=>$date_to ) ); ?>
-									</div>
-
-								<?php else : ?>
-
-									<div id="schedule-list">
-										<?php trav_tour_get_schedule_list_html( array( 'tour_id'=>$tour_id, 'date_from'=>$date_from, 'date_to'=>$date_to ) ); ?>
-									</div>
-									<div class="entry-content"><?php the_content(); ?></div>
-
-								<?php endif; ?>
-
+                <div class="intro2 small-box border-box table-wrapper hidden-table-sms">
+                  <div class="image-container table-cell">
+                      <?php echo the_post_thumbnail( 'thumbnail' );  ?>
+                  </div>
+                  <div class="table-cell">
+                    <dl class="term-description">
+                      <dt>Địa điểm:</dt>
+                      <dd class="text-green"><?php echo (!empty(get_field("locations", $tour_id))) ? get_field("locations", $tour_id) : ''; ?></dd>
+                      <dt>Khởi hành:</dt>
+                      <dd class="text-green"><?php echo (!empty(get_field("itinerary", $tour_id))) ? get_field("itinerary", $tour_id) : ''; ?></dd>
+                      <dt>Thời gian:</dt>
+                      <dd class="text-green"><?php echo (!empty(get_field("times", $tour_id))) ? get_field("times", $tour_id) : ''; ?></dd>
+                      <dt>Giá:</dt>
+                      <dd class="text-green">
+                          <?php $html_price = '';
+                          if (get_field("prices", $acc_id)) {
+                              $html_price .= number_format_i18n(get_field("prices", $tour_id)) . ' VNĐ';
+                          } else {
+                              $html_price .= 'Liên hệ';
+                          }
+                          echo $html_price;
+                          ?>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="price-section table-cell"><br><br>Giá
+                    <div class="price"><div style="color:red" class="price-per-unit"><?php echo $html_price;?></div></div>
+                    <a  href="<?php echo get_site_url();?>/lien-he" class="button btn-small uppercase">Đặt Tour</a>
+                    <!--<p>Giảm 30% cho 100 tour đầu    </p>-->
+                  </div>
+                </div>
+                <div class="entry-content"><?php the_content(); ?></div>
 							</div>
-                            <?php comments_template(); ?>
+                  <?php comments_template(); ?>
 						</div>
 					</div>
 
@@ -175,8 +121,15 @@ if ( have_posts() ) {
                                   </span>
                                   <h4 class="box-title"><a href="<?php echo esc_url( $url );?>"><?php echo esc_html( get_the_title( $acc_id ) );?></a><small><?php echo (!empty(get_field("times", $acc_id))) ? get_field("times", $acc_id) : ''; ?></small></h4>
                                   <div class="feedback">
+                                    <?php
+                                    $star = REVIEW_POINT_DEFAULT;
+                                    $reviews = get_field('reviews', $acc_id);
+                                    if (!empty($reviews)) {
+                                        $star = ONE_STAR_POINT_ * intval($reviews);
+                                    }
+                                    ?>
                                     <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" data-original-title="" title="">
-                                      <span style="width:80%" class="five-stars"></span>
+                                      <span style="width:<?php echo $star?>%" class="five-stars"></span>
                                     </div>
                                     <!--<span class="review">1221 View</span>-->
                                   </div>

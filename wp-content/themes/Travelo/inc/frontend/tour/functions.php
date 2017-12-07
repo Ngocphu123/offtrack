@@ -1,6 +1,8 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+define('REVIEW_POINT_DEFAULT', 85);
+define('ONE_STAR_POINT_', 20);
 /*
  * Get Tour City Data
  */

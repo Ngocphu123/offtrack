@@ -71,3 +71,80 @@ a.button {
 .image-box.style3 .details .box-title{
     margin-bottom: 5px;
 }
+/* Begin style for tour detail */
+.text-green{
+    color:#6ac610
+}
+#tour-details .intro2 {
+    width: 100%;
+    padding: 20px 10px
+}
+
+#tour-details .intro2 .table-cell {
+    padding: 10px 20px
+}
+
+#tour-details .intro2 .image-container {
+    width: 200px;
+    padding-right: 10px;
+}
+
+#tour-details .intro2 .term-description {
+    margin-bottom: 0;
+    font-size: 0.8333em
+}
+
+#tour-details .intro2 .term-description dt {
+    border-right: none;
+    width: 110px
+}
+
+#tour-details .intro2 .term-description dd {
+    width: auto
+}
+
+#tour-details .intro2 .term-description dt,
+#tour-details .intro2 .term-description dd {
+    font-weight: 600;
+    font-size: 12px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    line-height: 1.4em;
+    text-transform: uppercase;
+}
+
+#tour-details .intro2 .price-section {
+    text-align: center;
+    width: 1%;
+    border-left: 1px solid #f5f5f5;
+    padding-left: 30px
+}
+
+#tour-details .intro2 .price-section .price {
+    float: none;
+    line-height: 0.8em;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-right: 0
+}
+@media (max-width: 767px) {
+    #tour-details .intro2 {
+        padding: 10px 0
+    }
+    #tour-details .intro2:after {
+        content: "";
+        display: table;
+        clear: both
+    }
+    #tour-details .intro2 .term-description dd {
+        width: auto;
+        max-width: 120px
+    }
+    #tour-details .intro2 .price-section {
+        border-left: none;
+        width: auto;
+        text-align: left;
+        float: left !important;
+        padding-left: 20px
+    }
+}
