@@ -25,21 +25,21 @@ $footer_skin = empty( $trav_options['footer_skin'] )?'style-def':$trav_options['
                 </div>
             </div>
         </div>
-       <!-- <div class="bottom gray-area">
+        <div class="bottom gray-area">
             <div class="container">
-                <div class="logo pull-left">
+               <!-- <div class="logo pull-left">
                     <a href="<?php /*echo esc_url( home_url() ); */?>">
                         <img src="<?php /*echo esc_url( $logo_url ); */?>" alt="<?php /*bloginfo('name'); */?>" />
                     </a>
-                </div>
+                </div>-->
                 <div class="pull-right">
                     <a id="back-to-top" href="#"><i class="soap-icon-longarrow-up circle"></i></a>
                 </div>
-                <div class="copyright pull-right">
+                <!--<div class="copyright pull-right">
 					<p>&copy; <?php /*echo esc_html( $trav_options['copyright'] ); */?></p>
-                </div>
+                </div>-->
             </div>
-        </div>-->
+        </div>
     </footer>
 </div>
 <div class="opacity-overlay opacity-ajax-overlay"><i class="fa fa-spinner fa-spin spinner"></i></div>
