@@ -166,7 +166,7 @@ if ( have_posts() ) :
                                         <input type="text" name="s" class="input-text full-width" placeholder="<?php _e( 'Enter a destination or tour name', 'trav') ?>" />
                                     </div>
                                     <div class="form-group col-sm-6 col-md-3 fixheight">
-                                        <?php $danhsach_diadiem = get_terms( 'diadiem', array( 'orderby' => 'parent', 'order' => 'ASC', 'hide_empty' => 'false' ) ); ?>
+                                        <?php $danhsach_diadiem = get_terms( 'diadiem', array( 'orderby' => 'parent', 'order' => 'ASC', 'hide_empty' => false ) ); ?>
                                         <div class="row">
                                             <?php if ( ! empty( $danhsach_diadiem ) ) : ?>
                                                 <div class="col-xs-6">
