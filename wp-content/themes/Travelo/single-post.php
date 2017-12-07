@@ -58,35 +58,35 @@ if ( have_posts() ) {
 									<?php endif; ?>
 								</div>
 							</div>
-							<div class="about-author block">
-								<h2><?php _e( 'About Author', 'trav' ) ?></h2>
+						<!--	<div class="about-author block">
+								<h2><?php /*_e( 'About Author', 'trav' ) */?></h2>
 								<div class="about-author-container">
 									<div class="about-author-content">
 										<div class="avatar">
-											<?php echo trav_get_avatar( array( 'id' => get_the_author_meta( 'ID' ), 'email' => get_the_author_meta('email'), 'size' => 96 ) ); ?>
+											<?php /*echo trav_get_avatar( array( 'id' => get_the_author_meta( 'ID' ), 'email' => get_the_author_meta('email'), 'size' => 96 ) ); */?>
 										</div>
 										<div class="description">
-											<h4><?php the_author_posts_link(); ?></h4>
-											<p><?php the_author_meta("description"); ?></p>
+											<h4><?php /*the_author_posts_link(); */?></h4>
+											<p><?php /*the_author_meta("description"); */?></p>
 										</div>
 									</div>
 									<div class="about-author-meta clearfix">
 										<ul class="social-icons">
-											<?php $author_twitter = get_the_author_meta( 'author_twitter' );?>
-											<?php $author_gplus = get_the_author_meta( 'author_gplus' );?>
-											<?php $author_facebook = get_the_author_meta( 'author_facebook' );?>
-											<?php $author_linkedin = get_the_author_meta( 'author_linkedin' );?>
-											<?php $author_dribbble = get_the_author_meta( 'author_dribbble' );?>
-											<?php if ( ! empty( $author_twitter ) ) { ?><li><a href="<?php echo esc_url( $author_twitter ) ?>" target="_blank"><i class="soap-icon-twitter"></i></a></li><?php } ?>
-											<?php if ( ! empty( $author_gplus ) ) { ?><li><a href="<?php echo esc_url( $author_gplus ) ?>" target="_blank"><i class="soap-icon-googleplus"></i></a></li><?php } ?>
-											<?php if ( ! empty( $author_facebook ) ) { ?><li><a href="<?php echo esc_url( $author_facebook ) ?>" target="_blank"><i class="soap-icon-facebook"></i></a></li><?php } ?>
-											<?php if ( ! empty( $author_linkedin ) ) { ?><li><a href="<?php echo esc_url( $author_linkedin ) ?>" target="_blank"><i class="soap-icon-linkedin"></i></a></li><?php } ?>
-											<?php if ( ! empty( $author_dribbble ) ) { ?><li><a href="<?php echo esc_url( $author_dribbble ) ?>" target="_blank"><i class="soap-icon-dribble"></i></a></li><?php } ?>
+											<?php /*$author_twitter = get_the_author_meta( 'author_twitter' );*/?>
+											<?php /*$author_gplus = get_the_author_meta( 'author_gplus' );*/?>
+											<?php /*$author_facebook = get_the_author_meta( 'author_facebook' );*/?>
+											<?php /*$author_linkedin = get_the_author_meta( 'author_linkedin' );*/?>
+											<?php /*$author_dribbble = get_the_author_meta( 'author_dribbble' );*/?>
+											<?php /*if ( ! empty( $author_twitter ) ) { */?><li><a href="<?php /*echo esc_url( $author_twitter ) */?>" target="_blank"><i class="soap-icon-twitter"></i></a></li><?php /*} */?>
+											<?php /*if ( ! empty( $author_gplus ) ) { */?><li><a href="<?php /*echo esc_url( $author_gplus ) */?>" target="_blank"><i class="soap-icon-googleplus"></i></a></li><?php /*} */?>
+											<?php /*if ( ! empty( $author_facebook ) ) { */?><li><a href="<?php /*echo esc_url( $author_facebook ) */?>" target="_blank"><i class="soap-icon-facebook"></i></a></li><?php /*} */?>
+											<?php /*if ( ! empty( $author_linkedin ) ) { */?><li><a href="<?php /*echo esc_url( $author_linkedin ) */?>" target="_blank"><i class="soap-icon-linkedin"></i></a></li><?php /*} */?>
+											<?php /*if ( ! empty( $author_dribbble ) ) { */?><li><a href="<?php /*echo esc_url( $author_dribbble ) */?>" target="_blank"><i class="soap-icon-dribble"></i></a></li><?php /*} */?>
 										</ul>
-										<div class="wrote-posts-count"><i class="soap-icon-slider"></i><span><b><?php the_author_posts() ?></b> <?php _e( 'Posts', 'trav' );?></span></div>
+										<div class="wrote-posts-count"><i class="soap-icon-slider"></i><span><b><?php /*the_author_posts() */?></b> <?php /*_e( 'Posts', 'trav' );*/?></span></div>
 									</div>
 								</div>
-							</div>
+							</div>-->
 							<h2><?php _e( 'You Might Also Like This', 'trav' ); ?></h2>
 							<?php $related = trav_get_related_posts( $post_id );?>
 							<?php if ( $related->have_posts() ): ?>
