@@ -32,7 +32,7 @@ $footer_skin = empty( $trav_options['footer_skin'] )?'style-def':$trav_options['
                         <img src="<?php /*echo esc_url( $logo_url ); */?>" alt="<?php /*bloginfo('name'); */?>" />
                     </a>
                 </div>-->
-                <div class="pull-right">
+                <div class="backtotop">
                     <a id="back-to-top" href="#"><i class="soap-icon-longarrow-up circle"></i></a>
                 </div>
                 <!--<div class="copyright pull-right">
