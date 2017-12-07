@@ -110,7 +110,7 @@ if ( have_posts() ) {
 						</div>
 					</div>
 					<div class="sidebar col-sm-4 col-md-3">
-						<?php generated_dynamic_sidebar(); ?>
+						<?php generated_dynamic_sidebar("sidebar-tour"); ?>
 					</div>
 				</div>
 			</div>

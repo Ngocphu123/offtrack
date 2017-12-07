@@ -14,19 +14,19 @@ if ( have_posts() ) {
 
 		//init variables
 		$tour_id = get_the_ID();
-		$city = trav_tour_get_city( $tour_id );
-		$country = trav_tour_get_country( $tour_id );
+		//$city = trav_tour_get_city( $tour_id );
+		//$country = trav_tour_get_country( $tour_id );
 
-		$date_from = ( isset( $_GET['date_from'] ) ) ? trav_tophptime( $_GET['date_from'] ) : date( trav_get_date_format('php') );
-		$date_to = ( isset( $_GET['date_to'] ) ) ? trav_tophptime( $_GET['date_to'] ) : date( trav_get_date_format('php'), trav_strtotime( $date_from ) + 86400 * 30 );
-		$repeated = get_post_meta( $tour_id, 'trav_tour_repeated', true );
-		$multi_book = get_post_meta( $tour_id, 'trav_tour_multi_book', true );
-		$isv_setting = get_post_meta( $tour_id, 'trav_post_media_type', true );
-		$discount = get_post_meta( $tour_id, 'trav_tour_hot', true );
-		$discount_rate = get_post_meta( $tour_id, 'trav_tour_discount_rate', true );
-		$sc_list_pos = get_post_meta( $tour_id, 'trav_tour_sl_first', true );
+		//$date_from = ( isset( $_GET['date_from'] ) ) ? trav_tophptime( $_GET['date_from'] ) : date( trav_get_date_format('php') );
+		//$date_to = ( isset( $_GET['date_to'] ) ) ? trav_tophptime( $_GET['date_to'] ) : date( trav_get_date_format('php'), trav_strtotime( $date_from ) + 86400 * 30 );
+		//$repeated = get_post_meta( $tour_id, 'trav_tour_repeated', true );
+		//$multi_book = get_post_meta( $tour_id, 'trav_tour_multi_book', true );
+		//$isv_setting = get_post_meta( $tour_id, 'trav_post_media_type', true );
+		//$discount = get_post_meta( $tour_id, 'trav_tour_hot', true );
+		//$discount_rate = get_post_meta( $tour_id, 'trav_tour_discount_rate', true );
+		//$sc_list_pos = get_post_meta( $tour_id, 'trav_tour_sl_first', true );
 
-		$schedule_types = trav_tour_get_schedule_types( $tour_id );
+		//$schedule_types = trav_tour_get_schedule_types( $tour_id );
 
 		// add to user recent activity
 		trav_update_user_recent_activity( $tour_id ); ?>
@@ -44,6 +44,22 @@ if ( have_posts() ) {
 							</div>
 
 							<div id="tour-details" class="travelo-box">
+                              <div class="intro2 small-box border-box table-wrapper hidden-table-sms">
+                                <div class="image-container table-cell"><img src="https://scontent.fsgn3-1.fna.fbcdn.net/v/t1.0-9/22687679_447154462346867_6175907620238880230_n.jpg?oh=b2cac4e77e596d14bce2dcf49b6f0587&amp;oe=5A734B05" alt="Du Lịch Singapore"></div>
+                                <div class="table-cell">
+                                  <dl class="term-description">
+                                    <dt>Địa điểm:</dt><dd style="color:#6ac610">Singapore</dd>
+                                    <dt>Khởi hành:</dt><dd style="color:#6ac610">Hằng Tuần</dd>
+                                    <dt>Thời gian:</dt><dd style="color:#6ac610">3 ngày 2 đêm</dd>
+                                    <dt>Giá:</dt><dd style="color:#6ac610">9.980.000 vnđ/khách</dd>
+                                  </dl>
+                                </div>
+                                <div class="price-section table-cell"><br><br>Giá chỉ
+                                  <div class="price"><div style="color:red" class="price-per-unit">9.980.000 vnđ/khách</div></div>
+                                  <a style="background:#01b7f2" href="/lien-he.htm" class="button green btn-small uppercase">Đặt Tour</a>
+                                  <p>Giảm 30% cho 100 tour đầu    </p>
+                                </div>
+                              </div>
 								<?php if ( ! empty( $repeated ) ): ?>
 									<form id="check_availability_form" method="post">
 										<input type="hidden" name="tour_id" value="<?php echo esc_attr( $tour_id ); ?>">
