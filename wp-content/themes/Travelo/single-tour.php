@@ -23,7 +23,7 @@ if ( have_posts() ) {
 					<div id="main" class="col-sm-8 col-md-9">
 						<div <?php post_class(); ?>>
 							<div class="image-box">
-								<?php //trav_post_gallery( $tour_id ) ?>
+								<?php trav_post_gallery( $tour_id ) ?>
 							</div>
 
 							<div id="tour-details" class="travelo-box">

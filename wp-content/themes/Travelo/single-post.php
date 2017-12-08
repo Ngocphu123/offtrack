@@ -98,7 +98,7 @@ if ( have_posts() ) {
 												<a href="<?php the_permalink(); ?>" class="hover-effect">
 													<?php the_post_thumbnail( 'thumbnail', array( 'class' => 'middle-item' ) ); ?>
 												</a>
-												<h5 class="caption"><?php the_title(); ?></h5>
+                                              <h5 class="caption"><a href="<?php the_permalink(); ?>" ><?php the_title(); ?> </a></h5>
 											</li>
 											<?php endwhile; ?>
 										</ul>
