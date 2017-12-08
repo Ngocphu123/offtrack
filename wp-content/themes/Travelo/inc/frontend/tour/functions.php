@@ -1090,3 +1090,53 @@ if ( ! function_exists( 'trav_tour_count_tours_by_tg_id' ) ) {
         return count( $tours );
     }
 }
+
+if ( ! function_exists( 'trav_tour_get_search' ) ) {
+    function trav_tour_get_search( $search_data=array() ) {
+        global $wpdb, $language_count;
+        $tbl_posts = esc_sql( $wpdb->posts );
+        $tbl_postmeta = esc_sql( $wpdb->postmeta );
+        $tbl_terms = esc_sql( $wpdb->prefix . 'terms' );
+        $tbl_term_taxonomy = esc_sql( $wpdb->prefix . 'term_taxonomy' );
+        $tbl_term_relationships = esc_sql( $wpdb->prefix . 'term_relationships' );
+        $order_by = esc_sql( empty( $search_data['order_by'] ) ? 'post_title' : $search_data['order_by'] );
+        $order = esc_sql( empty( $search_data['order'] ) ? 'ASC' : $search_data['order'] );
+        $last_no = esc_sql( empty( $search_data['last_no'] ) ? 0 : $search_data['last_no'] );
+        $per_page = esc_sql( empty( $search_data['per_page'] ) ? 10 : $search_data['per_page'] );
+        $diadiem = ( empty( $search_data['diadiem'] ) || ! is_array( $search_data['diadiem'] ) ) ? array() : $search_data['diadiem'];
+        foreach ( $diadiem as $key=>$value ) {
+            if ( ! is_numeric( $value ) ) unset( $diadiem[$key] );
+        }
+
+        $s = '';
+        if ( floatval( get_bloginfo( 'version' ) ) >= 4.0 ) {
+            $s = esc_sql( $wpdb->esc_like( $search_data['s'] ) );
+        } else {
+            $s = esc_sql( like_escape( $search_data['s'] ) );
+        }
+
+        $sql = ''; $s_query = ''; $where = ' 1=1'; // sql for search keyword
+
+        if ( ! empty( $s ) ) {
+            $sql = "SELECT DISTINCT post_s1.ID AS tour_id FROM {$tbl_posts} AS post_s1 
+                        LEFT JOIN {$tbl_postmeta} AS meta_s1 ON post_s1.ID = meta_s1.post_id
+                        LEFT JOIN {$tbl_terms} AS terms_s1 ON (meta_s1.meta_key IN('diachi')) AND (terms_s1.term_id = meta_s1.meta_value)";
+            $where .= " AND (post_s1.post_status = 'publish') AND (post_s1.post_type = 'tour')
+                          AND ((post_s1.post_title LIKE '%{$s}%') 
+                            OR (post_s1.post_content LIKE '%{$s}%')
+                            OR (meta_s1.meta_value LIKE '%{$s}%')
+                            OR (terms_s1.name LIKE '%{$s}%'))";
+        } else {
+            $sql = "SELECT post_s1.ID AS tour_id FROM {$tbl_posts} AS post_s1";
+            $where .= " AND (post_s1.post_status = 'publish') AND (post_s1.post_type = 'tour')";
+        }
+        if ( ! empty( $diadiem ) ) {
+            $sql .= " INNER JOIN {$tbl_term_relationships} AS tr ON tr.object_id = post_s1.ID 
+                    INNER JOIN {$tbl_term_taxonomy} AS tt ON tt.term_taxonomy_id = tr.term_taxonomy_id";
+            $where .= " AND tt.taxonomy = 'diadiem' AND tt.term_id IN (" . esc_sql( implode( ',', $diadiem ) ) . ")";
+        }
+        $sql .= " WHERE {$where} ORDER BY {$order_by} {$order} LIMIT {$last_no}, {$per_page};";
+        $results = $wpdb->get_results( $sql );
+        return $results;
+    }
+}

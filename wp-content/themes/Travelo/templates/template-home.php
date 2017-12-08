@@ -160,30 +160,31 @@ if ( have_posts() ) :
                             <form role="search" method="get" id="searchform" class="tour-searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                                 <input type="hidden" name="post_type" value="tour">
                                 <div class="row">
-                                    <div class="form-group col-sm-4 col-md-3">
-                                        <h4 class="title"><?php _e( 'Where','trav' ); ?></h4>
-                                        <label><?php _e( 'Destination ', 'trav' ) ?></label>
-                                        <input type="text" name="s" class="input-text full-width" placeholder="<?php _e( 'Enter a destination or tour name', 'trav') ?>" />
+                                    <div class="form-group col-sm-4 col-md-4">
+                                        <!--<h4 class="title"><?php /*_e( 'Chào mừng bạn đến với Công ty du lịch Offtrack Travel','trav' ); */?></h4>-->
+                                        <label><?php _e( 'Tìm địa chỉ', 'trav' ) ?></label>
+                                        <input type="text" name="s" class="input-text full-width" placeholder="<?php _e( 'Nhập địa chỉ bạn muốn đi', 'trav') ?>" />
                                     </div>
-                                    <div class="form-group col-sm-6 col-md-3 fixheight">
+
+                                    <div class="form-group col-sm-4 col-md-4">
                                         <?php $danhsach_diadiem = get_terms( 'diadiem', array( 'orderby' => 'parent', 'order' => 'ASC', 'hide_empty' => false ) ); ?>
-                                        <div class="row">
-                                            <?php if ( ! empty( $danhsach_diadiem ) ) : ?>
-                                                <div class="col-xs-6">
-                                                    <label><?php _e( 'Bạn muốn đến đâu', 'trav' ) ?></label>
+                                        <?php if ( ! empty( $danhsach_diadiem ) ) : ?>
+                                                <div>
+                                                    <label><?php _e( 'Bạn muốn đi đâu', 'trav' ) ?></label>
                                                     <div class="selector">
                                                         <select name="diadiem" class="full-width">
                                                             <option value=""><?php _e( 'Tất cả', 'trav' ) ?></option>
                                                             <?php foreach ( $danhsach_diadiem as $diadiem ) : ?>
-                                                                <option value="<?php echo $diadiem->term_id ?>"><?php _e( $diadiem->name, 'trav' ) ?></option>
+                                                                <?php if ($diadiem->parent != 0) :?>
+                                                                    <option value="<?php echo $diadiem->term_id ?>"><?php _e( $diadiem->name, 'trav' ) ?></option>
+                                                                <?php endif;?>
                                                             <?php endforeach; ?>
                                                         </select>
                                                     </div>
                                                 </div>
-                                            <?php endif; ?>
-                                        </div>
+                                        <?php endif; ?>
                                     </div>
-                                    <div class="form-group col-sm-6 col-md-2 fixheight">
+                                    <div class="form-group col-sm-4 col-md-4">
                                         <label class="hidden-xs">&nbsp;</label>
                                         <button type="submit" class="full-width icon-check animated" data-animation-type="bounce" data-animation-duration="1"><?php _e( 'Tìm kiếm ngay', 'trav') ?></button>
                                     </div>
