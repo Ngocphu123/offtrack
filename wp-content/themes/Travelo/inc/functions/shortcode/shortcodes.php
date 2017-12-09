@@ -1040,8 +1040,8 @@ class TravShortcodes {
 			'title' => '',
 			'type' => 'latest',
 			'style' => 'style1',
-			'count' =>1,
-			'count_per_row' => 6,
+			'count' =>4,
+			'count_per_row' => 8,
 			'city' => '',
 			'country' => '',
 			'tour_type' => '',
@@ -1061,9 +1061,9 @@ class TravShortcodes {
 		if ( $slide == 'no' || $slide == 'false' ) { $slide = 'false'; }
 		if ( $type == 'hot' && empty( $show_badge ) ) $show_badge = true;
 		if ( $show_badge == 'no' || $show_badge == 'false' ) { $show_badge = false; }
-		$styles = array( 'style1', 'style2', 'style3' );
+		$styles = array( 'style1', 'style2', 'style3', 'offtrack' );
 		$types = array( 'latest', 'featured', 'popular', 'hot', 'selected' );
-		if ( ! in_array( $style, $styles ) ) $style = 'style1';
+		if ( ! in_array( $style, $styles ) ) $style = 'offtrack';
 		if ( ! in_array( $type, $types ) ) $type = 'latest';
 		$post_ids = explode( ',', $post_ids );
 		$count = is_numeric( $count )?$count:10;
