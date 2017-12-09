@@ -159,3 +159,6 @@ a.button {
     border-bottom:none;
     padding-top: 6px;
 }
+#main-menu ul.menu, .chaser ul.menu {
+    color: #ffffff;
+}
