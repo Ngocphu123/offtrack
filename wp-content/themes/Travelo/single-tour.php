@@ -42,7 +42,7 @@ if ( have_posts() ) {
                       <dt>Giá:</dt>
                       <dd class="text-green">
                           <?php $html_price = '';
-                          if (get_field("prices", $acc_id)) {
+                          if (get_field("prices", $tour_id)) {
                               $html_price .= number_format_i18n(get_field("prices", $tour_id)) . ' VNĐ';
                           } else {
                               $html_price .= 'Liên hệ';

@@ -825,7 +825,7 @@ if ( ! function_exists( 'trav_comment' ) ) {
 
                 <div class="comment-box">
                     <div class="comment-author">
-                        <?php $comment_reply_link = get_comment_reply_link(array_merge( $args, array('reply_text' => __('REPLY', 'trav'), 'depth' => $depth )));
+                        <?php $comment_reply_link = get_comment_reply_link(array_merge( $args, array('reply_text' => __('TRẢ LỜI', 'trav'), 'depth' => $depth )));
                         $comment_reply_link = str_replace("class='comment-reply-link", "class='comment-reply-link button btn-mini pull-right", $comment_reply_link);
                         echo ( $comment_reply_link ); ?>
                         <h4 class="box-title"><?php echo get_comment_author_link() ?><small><?php comment_date()?></small></h4>
@@ -2183,3 +2183,60 @@ if ( ! function_exists( 'trav_google_map_url' ) ) {
         return $map_url;
     }
 }
+
+if (! function_exists('trav_get_comments_number_text')){
+    function trav_get_comments_number_text( $zero = false, $one = false, $more = false){
+        $number = get_comments_number();
+
+        if ( $number > 1 ) {
+            if ( false === $more ) {
+                /* translators: %s: number of comments */
+                $output = sprintf( _n( '%s Bình luận', '%s Bình luận', $number ), number_format_i18n( $number ) );
+            } else {
+                // % Comments
+                /* translators: If comment number in your language requires declension,
+                 * translate this to 'on'. Do not translate into your own language.
+                 */
+                if ( 'on' === _x( 'off', 'Comment number declension: on or off' ) ) {
+                    $text = preg_replace( '#<span class="screen-reader-text">.+?</span>#', '', $more );
+                    $text = preg_replace( '/&.+?;/', '', $text ); // Kill entities
+                    $text = trim( strip_tags( $text ), '% ' );
+
+                    // Replace '% Comments' with a proper plural form
+                    if ( $text && ! preg_match( '/[0-9]+/', $text ) && false !== strpos( $more, '%' ) ) {
+                        /* translators: %s: number of comments */
+                        $new_text = _n( '%s Comment', '%s Comments', $number );
+                        $new_text = trim( sprintf( $new_text, '' ) );
+
+                        $more = str_replace( $text, $new_text, $more );
+                        if ( false === strpos( $more, '%' ) ) {
+                            $more = '% ' . $more;
+                        }
+                    }
+                }
+
+                $output = str_replace( '%', number_format_i18n( $number ), $more );
+            }
+        } elseif ( $number == 0 ) {
+            $output = ( false === $zero ) ? __( 'Không có bình luận' ) : $zero;
+        } else { // must be one
+            $output = ( false === $one ) ? __( '1 Bình luận' ) : $one;
+        }
+    }
+
+}
+add_filter('comments_number','trav_get_comments_number_text');
+
+if (! function_exists('trav_comment_form_defaults')){
+    function trav_comment_form_defaults( ){
+        $defaults = array(
+            'title_reply'          => __( 'Trả lời' ),
+            'title_reply_to'       => __( 'Trả lời %s' ),
+            'cancel_reply_link'    => __( 'Hủy' ),
+            'label_submit'         => __( 'Bình luận bài viết' ),
+        );
+        return $defaults;
+    }
+}
+
+add_filter('comment_form_defaults','trav_comment_form_defaults');

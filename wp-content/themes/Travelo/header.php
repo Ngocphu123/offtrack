@@ -54,7 +54,7 @@ global $trav_options, $logo_url, $my_account_page, $login_url, $signup_url, $red
 	$mobile_mini_menu .= '<li><a href="' . esc_url( $my_account_page ) . '"' . ( ( $my_account_page == '#travelo-login' ) ? ' class="soap-popupbox"' : '') . '>' . esc_html__( 'MY ACCOUNT', 'trav' ) . '</a></li>';
 	}
 
-    if ( $trav_options['woo_show_mini_cart'] ) {
+    if ( isset($trav_options['woo_show_mini_cart'] )) {
         $mobile_mini_menu .= '<li>
         <div class="mini-cart">
             <a href="<?php echo wc_get_cart_url() ?>" class="cart-contents" title="<?php _e(\'View Cart\', \'trav\') ?>"> 

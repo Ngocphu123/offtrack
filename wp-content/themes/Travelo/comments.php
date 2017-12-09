@@ -25,7 +25,7 @@
 
 	 <?php else : // comments are closed ?>
 		<!-- If comments are closed. -->
-		<p class="no-comments"><?php echo __('Comments are closed.', 'trav'); ?></p>
+		<p class="no-comments"><?php echo __('Bình luận bị đóng.', 'trav'); ?></p>
 
 	<?php endif; ?>
 
@@ -35,13 +35,13 @@
 	<div class="post-comment block" id="respond">
 		<div class="travelo-box">
 			<?php
-				$args = array(  'comment_field' => '<div id="comment-textarea" class="form-group"><label for="comment">' . __( 'Your Message', 'trav' ) . '</label><textarea id="comment" name="comment" rows="6" aria-required="true"  class="input-text full-width textarea-comment" placeholder="write message here"></textarea></div>',
-								'title_reply' => __( 'Leave a Comment', 'trav' ),
-								'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published. All fields are required.', 'trav' ) . '</p>',
+				$args = array(  'comment_field' => '<div id="comment-textarea" class="form-group"><label for="comment">' . __( 'Nội dung của bạn', 'trav' ) . '</label><textarea id="comment" name="comment" rows="6" aria-required="true"  class="input-text full-width textarea-comment" placeholder="viết nội dung ở đây"></textarea></div>',
+								'title_reply' => __( 'Để lại bình luận', 'trav' ),
+								'comment_notes_before' => '<p class="comment-notes">' . __( 'Email của bạn sẽ không được hiển thị công khai. Tất cả các trường đều là bắt buộc.', 'trav' ) . '</p>',
 								'id_submit' => 'comment-submit',
 								'fields' => array(
-										'author' => '<div class="col-xs-6"> <label>' . __( 'Your Name', 'trav' ) . '</label> <input name="author" type="text" class="input-text full-width" value=""> </div>',
-										'email' => '<div class="col-xs-6"> <label>' . __( 'Your Email', 'trav' ) . '</label> <input name="email" type="text" class="input-text full-width" value=""> </div>',
+										'author' => '<div class="col-xs-6"> <label>' . __( 'Tên của bạn', 'trav' ) . '</label> <input name="author" type="text" class="input-text full-width" value=""> </div>',
+										'email' => '<div class="col-xs-6"> <label>' . __( 'Email của bạn', 'trav' ) . '</label> <input name="email" type="text" class="input-text full-width" value=""> </div>',
 								),
 							);
 			 ?>

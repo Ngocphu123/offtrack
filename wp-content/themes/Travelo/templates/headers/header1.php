@@ -36,7 +36,7 @@ global $trav_options, $logo_url;
 
 	<div id="main-menu">
 		<div class="container"> 
-			<?php if ( $trav_options['woo_show_mini_cart'] && class_exists( 'WooCommerce' ) ) { ?>
+			<?php if ( isset($trav_options['woo_show_mini_cart']) && class_exists( 'WooCommerce' ) ) { ?>
 				<div class="mini-cart">
 					<a href="<?php echo wc_get_cart_url() ?>" class="cart-contents" title="<?php _e('View Cart', 'trav') ?>"> 
 						<i class="soap-icon-shopping"></i>
