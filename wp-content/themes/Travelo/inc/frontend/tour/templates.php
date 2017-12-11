@@ -352,7 +352,81 @@ if ( ! function_exists( 'trav_tour_get_tour_list_sigle' ) ) {
                         </div>
                     </div>
                 </article>
-		<?php }
+		<?php } elseif ( $list_style == "offtrack-style1" ) { ?>
+
+            <article class="box">
+                <figure <?php echo wp_kses_post( $animation ) ?>>
+                    <a title="<?php _e( 'View Photo Gallery', 'trav' ); ?>" class="hover-effect popup-gallery" data-post_id="<?php echo esc_attr( $tour_id );?>" href="#"><?php echo get_the_post_thumbnail( $tour_id, 'biggallery-thumb' ); ?></a>
+                    <?php if ( ! empty( $discount_rate ) ) { ?>
+                        <span class="discount"><span class="discount-text"><?php echo esc_html( $discount_rate . '%' . ' ' . __( 'Discount', 'trav' ) ); ?></span></span>
+                    <?php } ?>
+                </figure>
+                <div class="details">
+                    <?php if ( ! empty( $min_price ) && is_numeric( $min_price ) ) { ?>
+                        <span class="price"><?php echo esc_html( trav_get_price_field( $min_price ) ); ?></span>
+                    <?php } ?>
+                    <h4 class="box-title"><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( get_the_title( $tour_id ) );?></a><div class="feedback">
+                            <?php
+                            $star = REVIEW_POINT_DEFAULT;
+                            $reviews = get_field('reviews', $tour_id);
+                            if (!empty($reviews)) {
+                                $star = ONE_STAR_POINT_ * intval($reviews);
+                            }
+                            ?>
+                            <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" data-original-title="" title="">
+                                <span style="width:<?php echo $star?>%" class="five-stars"></span>
+                            </div>
+                            <!--<span class="review">1221 View</span>-->
+                        </div></h4>
+                    <div class="description"><?php /*echo wp_kses_post( $brief ); */?>
+                        <div class="row time">
+                            <div class="date col-xs-6">
+                                <i class="soap-icon-clock yellow-color"></i>
+                                <div>
+                                    <span class="skin-color">Khởi Hành</span><br><?php echo (!empty(get_field("itinerary", $tour_id))) ? get_field("itinerary", $tour_id) : ''; ?>
+                                </div>
+                            </div>
+                            <div class="departure col-xs-6">
+                                <i class="soap-icon-departure yellow-color"></i>
+                                <div>
+                                    <span class="skin-color">Địa Điểm</span><br><?php echo (!empty(get_field("locations", $tour_id))) ? get_field("locations", $tour_id) : ''; ?>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="description fourty-space">
+                            Phương Tiện: <span class="skin-color">
+                                <?php
+                                $field = get_field_object('transportation', $tour_id);
+                                $transportations = $field['value'];
+                                if ($transportations) {
+                                    $phuong_tien = '';
+                                    foreach ($transportations as $pt):
+                                        $phuong_tien .= ', '.$field['choices'][ $pt ];
+                                    endforeach;
+                                    echo ltrim($phuong_tien,',');
+                                }
+                                ?></span></p></div>
+                    <hr>
+                    <div class="text-center">
+                        <span class="price text-center">
+                            <?php
+                            $html_price = '';
+                            if (get_field("prices", $tour_id)) {
+                                $html_price .= '<small>Giá Chỉ </small>';
+                                $html_price .= number_format_i18n(get_field("prices", $tour_id)) . ' vnđ';
+                            } else {
+                                $html_price .= '<small>Giá</small>';
+                                $html_price .= 'Liên hệ';
+                            }
+                            echo $html_price;
+                            ?>
+                        </span>
+                        <div class="action">
+                            <a title="<?php _e( 'Xem tour', 'trav' ); ?>" class="button btn-small full-width" href="<?php echo esc_url( $url ); ?>"><?php _e( 'Xem tour', 'trav' ); ?></a>
+                        </div>
+                    </div>
+            </article>
+        <?php }
 
 		echo wp_kses_post( $after_article );
 	}

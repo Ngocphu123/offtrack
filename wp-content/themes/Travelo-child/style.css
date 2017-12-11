@@ -184,3 +184,32 @@ a.button {
 .listing-offtrack .description {
     margin-bottom: 10px !important;
 }
+.mt-50 {
+    margin-top: 50px;
+}
+.tour-packages.listing-offtrack-style1 .price{
+    text-align: center;
+    float: none;
+    margin: 15px;
+    line-height: 20px;
+}
+.tour-packages.listing-offtrack-style1 .time > div:first-child {
+    border-right: 1px solid #f5f5f5;
+}
+.image-box.listing-offtrack-style1 .details .description {
+    border-top: 1px solid #f5f5f5;
+    padding-top: 10px;
+}
+.listing-offtrack-style1 .time > div {
+    margin-bottom: 10px !important;
+}
+.listing-offtrack-style1 .feedback {
+    float: right;
+}
+.box-title {
+    font-weight: bold;
+}
+.listing-offtrack-style1.image-box .box .box-title {
+    font-weight: bold;
+    color: #da1158;
+}
