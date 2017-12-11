@@ -587,8 +587,8 @@ function displayImageCarousel($item) {
 					}
 				});
 			}
-			if (tjq('.listing-style1').length > 0) {
-				tjq('.listing-style1').each(function(index){
+			if (tjq('.listing-style1, .listing-offtrack').length > 0) {
+				tjq('.listing-style1, .listing-offtrack').each(function(index){
 					tjq(this).find('article.box .details .description').setSameHeight();
 					tjq(this).find('article.box .details .box-title').setSameHeight();
 					tjq(this).find('article.box').setSameHeight();

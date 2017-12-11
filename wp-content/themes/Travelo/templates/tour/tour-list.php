@@ -108,6 +108,6 @@ foreach( $tour_list as $tour ) {
         </article>
 
     <?php }
-    
+
     echo ( $after_article );
 }

@@ -162,3 +162,25 @@ a.button {
 #main-menu ul.menu, .chaser ul.menu {
     color: #ffffff;
 }
+.listing-offtrack .feedback {
+    margin: 5px 0;
+    border-top: 1px solid #f5f5f5;
+    padding-top: 5px;
+    border-bottom: 1px solid #f5f5f5;
+}
+.listing-offtrack .time {
+    padding-top: 5px;
+}
+.listing-offtrack .time > div:first-child {
+    border-right: 1px solid #f5f5f5;
+}
+.listing-offtrack .time > div {
+    margin-bottom: 10px !important;
+}
+.image-box.listing-offtrack .details .description {
+    border-top: 1px solid #f5f5f5;
+    padding-top: 10px;
+}
+.listing-offtrack .description {
+    margin-bottom: 10px !important;
+}
