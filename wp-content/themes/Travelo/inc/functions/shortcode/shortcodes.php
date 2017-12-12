@@ -1062,7 +1062,7 @@ class TravShortcodes {
 		if ( $type == 'hot' && empty( $show_badge ) ) $show_badge = true;
 		if ( $show_badge == 'no' || $show_badge == 'false' ) { $show_badge = false; }
 		$styles = array( 'style1', 'style2', 'style3', 'offtrack', 'offtrack-style1' );
-		$types = array( 'latest', 'featured', 'popular', 'hot', 'selected' );
+		$types = array( 'latest', 'featured', 'popular', 'hot', 'selected', 'pick' );
 		if ( ! in_array( $style, $styles ) ) $style = 'offtrack';
 		if ( ! in_array( $type, $types ) ) $type = 'latest';
 		$post_ids = explode( ',', $post_ids );

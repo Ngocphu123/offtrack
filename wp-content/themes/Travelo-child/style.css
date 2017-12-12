@@ -213,3 +213,9 @@ a.button {
     font-weight: bold;
     color: #da1158;
 }
+.listing-offtrack-style1 .box, .image-box.box {
+    min-height: 504px;
+}
+.offtrack-list-posts .box{
+    min-height: 312px;
+}

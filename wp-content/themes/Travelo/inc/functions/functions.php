@@ -1530,10 +1530,10 @@ if ( ! function_exists( 'trav_get_post_list_sigle' ) ) {
                         <a href="<?php echo esc_url( get_permalink( $post_id ) ); ?>" class="button"><?php echo esc_html__( 'MORE', 'trav' ) ?></a>
                         <h4 class="post-title entry-title"><?php echo wp_kses_post( get_the_title( $post_id ) ); ?></h4>
                         <div><?php echo wp_kses_post( $brief ); ?></div>
-                        <div class="post-meta single-line-meta vcard">
-                            <?php echo __( 'By','trav' ) ?> <span class="fn"><?php the_author_posts_link(); ?></span><span class="sep">|</span>
-                            <a href="<?php echo esc_url( get_comments_link( $post_id ) ); ?>" class="comment"><?php comments_number();?></a>
-                        </div>
+                        <!--<div class="post-meta single-line-meta vcard">
+                            <?php /*echo __( 'By','trav' ) */?> <span class="fn"><?php /*the_author_posts_link(); */?></span><span class="sep">|</span>
+                            <a href="<?php /*echo esc_url( get_comments_link( $post_id ) ); */?>" class="comment"><?php /*comments_number();*/?></a>
+                        </div>-->
 
                     <?php } elseif ( $list_style == "style2" ) { ?>
 

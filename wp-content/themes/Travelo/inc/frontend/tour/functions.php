@@ -595,6 +595,14 @@ if ( ! function_exists( 'trav_tour_get_special_tours' ) ) {
                 $result = array_merge( $result, trav_tour_get_special_tours( 'latest', $count - count( $popular_tours ), $exclude_ids, $country, $city, $tour_type ) );
             }
             return $result;
+        }  elseif ( $type == 'pick' ) {
+            $args = array_merge( $args, array(
+                'orderby' => 'post_date',
+                'order' => 'DESC',
+                'meta_key' => 'is_home',
+                'meta_value'	=> 1,
+            ) );
+            return get_posts( $args );
         }
     }
 }
