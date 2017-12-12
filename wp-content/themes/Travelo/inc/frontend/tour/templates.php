@@ -357,9 +357,9 @@ if ( ! function_exists( 'trav_tour_get_tour_list_sigle' ) ) {
             <article class="box">
                 <figure <?php echo wp_kses_post( $animation ) ?>>
                     <a title="<?php _e( 'View Photo Gallery', 'trav' ); ?>" class="hover-effect popup-gallery" data-post_id="<?php echo esc_attr( $tour_id );?>" href="#"><?php echo get_the_post_thumbnail( $tour_id, 'biggallery-thumb' ); ?></a>
-                    <?php if ( ! empty( $discount_rate ) ) { ?>
-                        <span class="discount"><span class="discount-text"><?php echo esc_html( $discount_rate . '%' . ' ' . __( 'Discount', 'trav' ) ); ?></span></span>
-                    <?php } ?>
+                    <?php /*if ( ! empty( $discount_rate ) ) { */?><!--
+                        <span class="discount"><span class="discount-text"><?php /*echo esc_html( $discount_rate . '%' . ' ' . __( 'Discount', 'trav' ) ); */?></span></span>
+                    --><?php /*} */?>
                 </figure>
                 <div class="details">
                     <?php if ( ! empty( $min_price ) && is_numeric( $min_price ) ) { ?>
