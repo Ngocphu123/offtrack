@@ -219,3 +219,13 @@ a.button {
 .offtrack-list-posts .box{
     min-height: 312px;
 }
+.icon-box.style5>i {
+    display: block;
+    width: 70px;
+    float: left;
+     background: #ffffff;
+    line-height: 70px;
+    color: #01b7f2;
+    font-size: 3em;
+    margin-right: 15px;
+}

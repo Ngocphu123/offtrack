@@ -199,6 +199,62 @@ if ( have_posts() ) :
             </div>
             <div class="entry-content">
                 <?php the_content(); ?>
+                <div class="container">
+                    <div class="block">
+                        <div>
+                            <h1>Offtrack travel</h1>
+                        </div>
+                        <div class="vc_row wpb_row vc_inner row">
+                            <div class="wpb_column col-sm-12 col-md-4">
+                                <div class="vc_column-inner ">
+                                    <div class="wpb_wrapper">
+                                        <div class="icon-box style5">
+                                            <i class="soap-icon-phone"></i>
+                                            <div class="description">
+                                                <small>Hotline 24/7</small>
+                                                <h5>086 890 8879</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wpb_column col-sm-12 col-md-4">
+                                <div class="vc_column-inner ">
+                                    <div class="wpb_wrapper">
+                                        <div class="icon-box style5">
+                                            <i class="soap-icon-message"></i>
+                                            <div class="description"><small>Gửi mail cho chúng tôi</small>
+                                                <h5>info@offtracktravel.com</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wpb_column col-sm-12 col-md-4">
+                                <div class="vc_column-inner ">
+                                    <div class="wpb_wrapper">
+                                        <div class="icon-box style5">
+                                            <i class="soap-icon-address"></i>
+                                            <div class="description"><small>Trụ sở tại</small>
+                                                <h5>USA, P.O Box, 353 Three Avenue</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="block">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <ul class="travel-news">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.486670478275!2d106.70126171435047!3d10.773988692323224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f46bf7d119d%3A0xebf6179d9abce572!2zTmd1ecOqzINuIEh1w6rMoywgQuG6v24gTmdow6ksIFF14bqtbiAxLCBI4buTIENow60gTWluaCwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1513309849409" width="100%" height="300"></iframe>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     <?php endwhile;
