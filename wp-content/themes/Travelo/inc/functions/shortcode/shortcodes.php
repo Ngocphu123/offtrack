@@ -1155,7 +1155,7 @@ class TravShortcodes {
 			$result .= '</figure>';
 			$result .= '<div class="details">';
 			$result .= '<h5 class="title"><a href="' . esc_url( get_permalink( $tour_id ) ) . '">' . esc_html( get_the_title( $tour_id ) ) . '</a></h5>';
-			$result .= '<label class="price-wrapper"><span class="price-per-unit">' . esc_html( trav_get_price_field( $min_price ) ) . '</span> ' . __( 'per person', 'trav' ) . '</label>';
+			/*$result .= '<label class="price-wrapper"><span class="price-per-unit">' . esc_html( trav_get_price_field( $min_price ) ) . '</span> ' . __( 'per person', 'trav' ) . '</label>';*/
 			$result .= '</div>';
 			$result .= '</article>';
 		}

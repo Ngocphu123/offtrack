@@ -473,10 +473,10 @@ class TravNewsWidget extends WP_Widget {
 				echo '<div class="description">';
 				echo '<h5 class="title">';
 				echo '<a href="' . esc_url( get_permalink() ) . '" title="' . esc_attr( get_the_title() ) . '">' . esc_html( get_the_title() ) . '</a></h5>';
-				$brief = apply_filters( 'the_content', get_post_field( 'post_content', get_the_ID() ) );
+				/*$brief = apply_filters( 'the_content', get_post_field( 'post_content', get_the_ID() ) );
 				$brief = wp_trim_words( $brief, 10, '' );
-				echo wp_kses_post( '<p>' . $brief . '</p>' );
-				echo '<span class="date">'; the_date(); echo '</span>';
+				echo wp_kses_post( '<p>' . $brief . '</p>' );*/
+			/*	echo '<span class="date">'; the_date(); echo '</span>';*/
 				echo '</div>';
 				echo '</li>';
 			endwhile;
