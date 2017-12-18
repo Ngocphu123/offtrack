@@ -58,7 +58,17 @@ if ( have_posts() ) {
                     <!--<p>Giảm 30% cho 100 tour đầu    </p>-->
                   </div>
                 </div>
-                <div class="entry-content"><?php the_content(); ?></div>
+                <div class="entry-content">
+                  <?php
+                    $maps = (!empty(get_field("maps", $tour_id,true))) ? get_field("maps", $tour_id) : '';
+                    if(!empty($maps)):
+                  ?>
+                    <div id="map1" style="width: 100%; height: 255px; position: relative; overflow: hidden; margin-bottom: 15px;">
+                      <?php echo $maps; ?>
+                    </div>
+              <?php endif; ?>
+                    <?php the_content(); ?>
+                </div>
 							</div>
                   <?php comments_template(); ?>
 						</div>
