@@ -1120,8 +1120,10 @@ class TravShortcodes {
 		$i = 0;
 		foreach ( $tours as $tour ) {
 			$animation = '';
-			if ( ! empty( $animation_type ) ) { $animation .= ' class="animated" data-animation-type="' . esc_attr( $animation_type ) . '" data-animation-duration="' . esc_attr( $animation_duration ) . '" data-animation-delay="' . esc_attr( $animation_delay * $i ) . '" '; }
-			trav_tour_get_tour_list_sigle( $tour->ID, $style, $before_item, $after_item, $show_badge, $animation );
+            if (!empty($tour)){
+                if ( ! empty( $animation_type ) ) { $animation .= ' class="animated" data-animation-type="' . esc_attr( $animation_type ) . '" data-animation-duration="' . esc_attr( $animation_duration ) . '" data-animation-delay="' . esc_attr( $animation_delay * $i ) . '" '; }
+                trav_tour_get_tour_list_sigle( $tour->ID, $style, $before_item, $after_item, $show_badge, $animation );
+            }
 			$i++;
 		}
 		echo ( $after_list );
