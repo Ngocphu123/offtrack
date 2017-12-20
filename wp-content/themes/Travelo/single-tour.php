@@ -68,6 +68,51 @@ if ( have_posts() ) {
                     </div>
               <?php endif; ?>
                     <?php the_content(); ?>
+                    <?php
+                    $tabs_content = array();
+                    $title_default = [
+                        1 => 'Giá tour bao gồm',
+                        2 => 'Giá tour không bao gồm',
+                        3 => 'Quy Định Đăng Ký Tour',
+                        4 => 'Lưu ý',
+                    ];
+                    for ($i=1; $i <=4; $i++){
+                      $tabs_content[] = [
+                          'id'      => "no{$i}",
+                          'title'   => (!empty(get_field("title_tab{$i}", $tour_id))) ? get_field("title_tab{$i}", $tour_id) : $title_default[$i],
+                          'content' => get_field("content_tab{$i}", $tour_id),
+                      ];
+                    }
+
+                    $html = ''; $html_title = ''; $html_content = '';
+                    if(!empty($tabs_content)){
+                      $html .= '<div class="tab-container clearfix style1">';
+                        $count = 0;
+                        $sum_arr = count($tabs_content);
+                        foreach ($tabs_content as $tab){
+                          $count++;
+                          $active_class = ($count === 1) ? 'active' : '';
+                          $active_content = ($count === 1) ? ' active in ' : '';
+                            if($count == 1){
+                                $html_title .= '<ul class="tabs clearfix">';
+                                $html_content .= '<div class="tab-content">';
+                            }
+
+                            $html_title .= '<li class="'.$active_class.'"><a href="#'.$tab['id'].'" data-toggle="tab">'.$tab['title'].'</a></li>';
+                            $html_content .= '<div id="'.$tab['id'].'" class="tab-pane fade '.$active_content.'">
+                                                <div>'.$tab['content'].'</div>
+                                              </div>';
+                            if($count == $sum_arr){
+                                $html_title .= '</ul>';
+                                $html_content .= '</div>';
+                            }
+                        }
+                        $html .= $html_title.$html_content;
+                      $html .= ' </div>';
+                    }
+                    echo $html;
+
+                    ?>
                 </div>
 							</div>
                   <?php comments_template(); ?>

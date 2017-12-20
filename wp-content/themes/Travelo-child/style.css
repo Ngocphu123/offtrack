@@ -229,3 +229,8 @@ a.button {
     font-size: 3em;
     margin-right: 15px;
 }
+
+.tab-container .tab-content{
+    max-height: 15em;
+    overflow-y: scroll;
+}
