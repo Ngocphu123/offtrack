@@ -234,3 +234,7 @@ a.button {
     max-height: 15em;
     overflow-y: scroll;
 }
+
+#main-menu ul.menu > li:hover > a, .chaser ul.menu > li:hover > a {
+	color: #fff;
+}

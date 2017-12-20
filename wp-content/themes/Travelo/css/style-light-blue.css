@@ -5464,7 +5464,7 @@ div.wpcf7 input, div.wpcf7 textarea {
         border: 1px solid transparent;
         overflow: hidden; }
         #header.style1 .social-icons li a:hover {
-          border: 1px solid #38739f6e; }
+          border: 1px solid #fff; }
           #header.style1 .social-icons li a:hover i {
             display: block;
             -webkit-animation: toBottomFromTop 0.3s forwards;
