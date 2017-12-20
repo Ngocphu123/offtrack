@@ -22,7 +22,7 @@ nav.menu-main-menu-container {
  
 }
 .chaser {
-    background: #01b7f2;
+    background: #77B7E7;
 }
 
 /* Style for category list */
@@ -31,7 +31,7 @@ nav.menu-main-menu-container {
 }
 
 a.button {
-    background: #01b7f2;
+    background: #77B7E7;
 }
 
 .widget_travcategorywidget{
@@ -54,7 +54,7 @@ a.button {
 .widget_tag_cloud a{
     display: inline-block;
     text-decoration: none;
-    background: #01b7f2;
+    background: #77B7E7;
     color: #FFF;
     padding: 5px 10px;
     margin-bottom: 5px;
@@ -225,7 +225,7 @@ a.button {
     float: left;
      background: #ffffff;
     line-height: 70px;
-    color: #01b7f2;
+    color: #77B7E7;
     font-size: 3em;
     margin-right: 15px;
 }
