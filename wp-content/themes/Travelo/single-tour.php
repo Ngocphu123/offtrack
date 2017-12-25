@@ -115,55 +115,51 @@ if ( have_posts() ) {
                     ?>
                 </div>
                 <div class="itinerary_tour" style="margin-top: 2px">
-                                    <div class="mt-3 mb-1 title" style="margin-top: 0 !important;">
-                                        <h4 class="text-uppercase detail-title"><i class="fa fa-chevron-right"></i>&nbsp;Hành Trình</h4>
-                                        <br/><br/>
-                                        <!-- RUBY TABS- begin ======================================================================== -->
-                                        <div class="" style="margin-bottom: 50px;padding: 0">
-                                            <!-- TABS - begin -->
-                                            <div class="tabs-preview rt01 rt01flat ruby" data-tabs='{
-                                                    "fx": "coverflow3D",
-                                                    "cssFourNextOut" : "roEdgeLeftOut",
-                                                    "cssFourNextIn"  : "roEdgeRightIn",
-                                                    "cssFourPrevOut" : "roEdgeRightOut",
-                                                    "cssFourPrevIn"  : "roEdgeLeftIn",
-                                                    "speed": 800,
-                                                    "pag": { "direction" : "ver", "widthMinToHor": 747 }}'>
+                    <div class="mt-3 mb-1 title" style="margin-top: 0 !important;">
+                        <h4 class="text-uppercase detail-title"><i class="fa fa-chevron-right"></i>&nbsp;Hành Trình</h4>
+                        <br/><br/>
+                        <!-- RUBY TABS- begin ======================================================================== -->
+                        <div class="" style="margin-bottom: 50px;padding: 0">
+                            <!-- TABS - begin -->
+                            <div class="tabs-preview rt01 rt01flat ruby" data-tabs='{
+                                    "fx": "coverflow3D",
+                                    "cssFourNextOut" : "roEdgeLeftOut",
+                                    "cssFourNextIn"  : "roEdgeRightIn",
+                                    "cssFourPrevOut" : "roEdgeRightOut",
+                                    "cssFourPrevIn"  : "roEdgeLeftIn",
+                                    "speed": 800,
+                                    "pag": { "direction" : "ver", "widthMinToHor": 747 }}'>
 
-                                                <div class="ruby-tab">
-                                                    <div class="rt01pagitem"><div class="ruby-tab-title"><i class = "ft-clock"></i>&nbsp;NGÀY 1</div>
+                                <div class="ruby-tab">
+                                    <div class="rt01pagitem"><div class="ruby-tab-title"><i class = "ft-clock"></i>&nbsp;NGÀY 1</div>
+                                    </div>
+                                    <div class="ruby-body">
+                                        <div class="ruby-inner">
+                                            <div class="ruby-header">
+                                                <div class="ruby-header-wrapper">
+                                                    <div class="ruby-header-text">
+                <span class="ruby-header-text-main">
+                  <i class = "ft-clock"></i>&nbsp;NGÀY 1:
+                  <span class="ruby-header-text-sub">London to Amsterdam</span>
+                </span>
                                                     </div>
-                                                    <div class="ruby-body">
-                                                        <div class="ruby-inner">
-                                                            <div class="ruby-header">
-                                                                <div class="ruby-header-wrapper">
-                                                                    <div class="ruby-header-text">
-                                <span class="ruby-header-text-main">
-                                  <i class = "ft-clock"></i>&nbsp;NGÀY 1:
-                                  <span class="ruby-header-text-sub">London to Amsterdam</span>
-                                </span>
-                                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ruby-content">
+                                                <div class="ruby-content-wrapper default-wheel-speed scroll-example">
+                                                    <div class="ruby-content-inner">
+                                                        <div class="ruby-content-table">
+                                                            <div class="ruby-content-row ruby-content-row--notFirst row">
+                                                                <div class="ruby-content-cell--left col-md-1">
+                                                                    <span class="ruby-content-cell--marker"><i class="fa fa-dot-circle-o"></i></span>
+                                                                    <span class="ruby-content-cell--roadLine"></span>
                                                                 </div>
-                                                            </div>
-                                                            <div class="ruby-content">
-                                                                <div class="ruby-content-wrapper default-wheel-speed scroll-example">
-                                                                    <div class="ruby-content-inner">
-                                                                        <div class="ruby-content-table">
-                                                                            <div class="ruby-content-row ruby-content-row--notFirst row">
-                                                                                <div class="ruby-content-cell--left col-md-1">
-                                                                                    <span class="ruby-content-cell--marker"><i class="fa fa-dot-circle-o"></i></span>
-                                                                                    <span class="ruby-content-cell--roadLine"></span>
-                                                                                </div>
-                                                                                <div class="ruby-content-cell--right col-md-11">
-                                                                                    <div class="ruby-content-desc-wrapper row">
-                                                                                        <div class="ruby-content-desc-main col-md-12">
-                                                                                            <div class="ruby-content-desc-title">Calais</div>
-                                                                                            <div class="ruby-content-desc-main-desc">
-                                                                                                <p>Off the ferry we arrive in the port town of Calais - French soil! We travel north via Belgium before reaching ... Amsterdam!</p>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
+                                                                <div class="ruby-content-cell--right col-md-11">
+                                                                    <div class="ruby-content-desc-wrapper row">
+                                                                        <div class="ruby-content-desc-main col-md-12">
+                                                                            <div class="ruby-content-desc-title">Calais</div>
+                                                                            <div class="ruby-content-desc-main-desc">
+                                                                                <p>Off the ferry we arrive in the port town of Calais - French soil! We travel north via Belgium before reaching ... Amsterdam!</p>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -173,13 +169,17 @@ if ( have_posts() ) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- TABS - end -->
-
                                         </div>
-                                        <!-- RUBY TABS - end ======================================================================== -->
                                     </div>
                                 </div>
                             </div>
+                            <!-- TABS - end -->
+
+                        </div>
+                        <!-- RUBY TABS - end ======================================================================== -->
+                    </div>
+                </div>
+            </div>
                   <?php comments_template(); ?>
 						</div>
 					</div>
