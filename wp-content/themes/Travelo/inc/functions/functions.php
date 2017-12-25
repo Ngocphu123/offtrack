@@ -1418,7 +1418,7 @@ if ( ! function_exists('trav_post_gallery') ) {
                 return false;
             } else {
                 echo '<figure class="image-container">';
-                    echo '<img src="'.get_the_post_thumbnail_url($post_id).'" class="attachment-post-thumbnail size-post-thumbnail wp-post-image img-responsive"/>';git
+                    echo '<img src="'.get_the_post_thumbnail_url($post_id).'" class="attachment-post-thumbnail size-post-thumbnail wp-post-image img-responsive"/>';
                 echo '</figure>';
             }
         } elseif ( $isv_setting == 'sld' ) {
