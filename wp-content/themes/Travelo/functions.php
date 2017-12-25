@@ -54,3 +54,24 @@ add_image_size( 'list-thumb', 230, 160, true );
 add_image_size( 'gallery-thumb', 270, 160, true );
 add_image_size( 'biggallery-thumb', 500, 300, true );
 add_image_size( 'widget-thumb', 64, 64, true );
+
+function load_scripts() {
+    global $post;
+
+    if( is_page() || is_single() )
+    {
+        switch($post->post_type)
+        {
+            case 'tour':
+                wp_enqueue_style( 'timeline', get_template_directory_uri() . '/css/timeline.css', false, '1.0', 'all' );
+                wp_enqueue_style( 'rubytabs', get_template_directory_uri() . '/css/rubytabs.css', false, '1.0', 'all' );
+                wp_enqueue_script('vendors', get_template_directory_uri() . '/js/vendors.min.js', array('jquery'), '1.6', true);
+                wp_enqueue_script('rubytabs', get_template_directory_uri() . '/js/rubytabs.js', array('jquery'), '1.6', true);
+                wp_enqueue_script('scrollable', get_template_directory_uri() . '/js/scrollable.min.js', array('jquery'), '1.6', true);
+                //wp_enqueue_script('jssorslider', get_template_directory_uri() . '/js/jssor.slider.min.js', array('jquery'), '1.6', true);
+                break;
+        }
+    }
+}
+
+add_action('wp_enqueue_scripts', 'load_scripts');

@@ -21,7 +21,7 @@ if ( ! empty( $tour_id ) ) : ?>
     <dl class="term-description">
         <?php
         $tour_meta = get_post_meta( $tour_id );
-        $tour_detail_fields = array( 
+        $tour_detail_fields = array(
             'security_deposit' => array( 'label' => __('Security Deposit', 'trav'), 'pre' => '', 'sur' => ' ' . '%' ),
             'country' => array( 'label' => __('Country', 'trav'), 'pre' => '', 'sur' => '' ),
             'city' => array( 'label' => __('City', 'trav'), 'pre' => '', 'sur' => '' ),
@@ -67,6 +67,6 @@ if ( ! empty( $tour_id ) ) : ?>
             ?>
         </dl>
 
-    <?php 
+    <?php
     endif;
 endif;

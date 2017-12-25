@@ -1,0 +1,286 @@
+.timeline-wrapper .img_container {
+  width: 100%;
+  padding-bottom: 50%;
+  position: relative;
+  overflow: hidden; }
+  .timeline-wrapper .img_container img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    object-fit: cover; }
+
+.timeline-wrapper .card-text {
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.timeline-wrapper .card-block {
+  padding: 10px; }
+
+.blog-wrapper .search_title {
+  padding: 10px;
+  margin-top: 25px; }
+  .blog-wrapper .search_title i {
+    padding: 10px;
+    background: #E95F1A;
+    color: #FFF; }
+
+.timeline-group a.date {
+  width: 100%;
+  background: #85C449 !important;
+  border-color: #85C449 !important; }
+
+.map_card .map__hotspot_o span.title {
+  color: #404E67; }
+
+.map_card {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-position: center center; }
+
+.timeline-card {
+  padding: 5px;
+  background: #E95F1A; }
+
+#timeline.timeline-center .timeline-item:nth-child(even):after {
+  border-left: 11px solid #E95F1A; }
+
+#timeline.timeline-center .timeline-item:nth-child(odd):after {
+  border-right: 11px solid #E95F1A; }
+
+.title-tour-search {
+  color: #FFF; }
+
+.timeline-card:hover {
+  opacity: 0.8; }
+
+.ruby-tab-title {
+  min-width: 120px; }
+
+.ruby-body {
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  margin-right: 12px;
+  background-color: #fff;
+  display: block;
+  height: 496px;
+  position: relative;
+  width: 100%; }
+
+.ruby-inner {
+  display: block;
+  height: 100%;
+  position: relative;
+  width: 100%; }
+
+.ruby-header {
+  background-color: #302A3D;
+  border-bottom: 1px solid #767E92;
+  border-top: 1px solid #767E92;
+  display: block;
+  height: 30px;
+  padding: 0 10px;
+  position: relative;
+  width: 100%;
+  white-space: nowrap; }
+  .ruby-header-wrapper {
+    display: block;
+    height: 100%;
+    position: relative;
+    text-align: left;
+    width: 100%; }
+  .ruby-header-text {
+    display: block;
+    height: 100%;
+    line-height: 24px;
+    position: relative;
+    top: 0;
+    width: 100%; }
+    .ruby-header-text-main {
+      font-size: 1rem;
+      font-weight: 400;
+      display: inline-block;
+      line-height: 16px;
+      overflow: hidden;
+      position: relative;
+      text-overflow: ellipsis;
+      top: 2px;
+      white-space: nowrap;
+      width: 100%;
+      color: white; }
+    .ruby-header-text-sub {
+      text-decoration: none;
+      font-size: 16px;
+      font-size: 1rem;
+      color: #fff;
+      font-weight: 700;
+      white-space: normal;
+      text-align: left;
+      display: -webkit-inline-flex;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      line-height: 24px;
+      margin-left: 3px;
+      position: relative;
+      /*width: calc(100% - 62px);*/}
+
+.ruby-content {
+  display: block;
+  height: 466px;
+  overflow: hidden;
+  padding: 15px 0 25px 0px;
+  position: relative;
+  width: 100%; }
+  .ruby-content-wrapper {
+    border: none;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding-right: 20px; }
+  .ruby-content-inner {
+    display: block;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    overflow: visible; }
+  .ruby-content-table {
+    position: relative;
+    width: 100%;
+    height: auto; }
+  .ruby-content-row {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-left: 20px;
+    margin-bottom: 15px; }
+  .ruby-content-cell--marker {
+    z-index: 3;
+    position: absolute;
+    display: inline-block;
+    font-style: normal;
+    font-size: 1.375rem;
+    color: #E95F1A;
+    left: 5px;
+    top: 1px;
+    font-weight: 400;
+    line-height: 1; }
+  .ruby-content-cell--roadLine {
+    text-align: center;
+    white-space: nowrap;
+    left: 11.5px;
+    position: absolute;
+    width: 3px;
+    background-color: #D5D3DA;
+    height: 80%;
+    display: inline-block;
+    top: 22px;
+    z-index: 3; }
+  .ruby-content-cell--left {
+    padding-top: 0;
+    position: absolute;
+    height: 100%;
+    vertical-align: top; }
+  .ruby-content-cell--right {
+    height: 100%;
+    position: relative;
+    vertical-align: top; }
+  .ruby-content-desc-wrapper {
+    display: inline-block;
+    height: auto;
+    margin-top: 1px;
+    position: relative;
+    width: 100%;
+    padding-left: 20px; }
+  .ruby-content-desc-title {
+    white-space: normal;
+    display: block;
+    text-decoration: none;
+    color: #302A3D;
+    text-align: left;
+    position: relative;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 16px;
+    margin-bottom: 10px; }
+  .ruby-content-desc-desc {
+    white-space: normal;
+    display: block;
+    text-decoration: none;
+    color: #302A3D;
+    text-align: left;
+    position: relative;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1px;
+    margin-top: 10px; }
+  .ruby-content-desc-main {
+    display: inline-block;
+    height: auto;
+    padding-right: 10px;
+    position: relative; }
+  .ruby-content-desc-opts {
+    display: inline-block;
+    height: auto;
+    padding-left: 8px;
+    position: relative; }
+    .ruby-content-desc-opts-title {
+      font-size: 12px;
+      color: #302A3D;
+      font-weight: 700;
+      white-space: normal;
+      text-align: left;
+      display: block;
+      line-height: 16px;
+      padding-left: 23px;
+      padding-top: 3px;
+      position: relative;
+      width: 100%; }
+    .ruby-content-desc-opts-cont {
+      display: block;
+      height: auto;
+      position: relative;
+      width: 100%;
+      margin-top: 2px; }
+      .ruby-content-desc-opts-cont-row {
+        display: block;
+        height: auto;
+        margin-bottom: 10px;
+        position: relative;
+        width: 100%; }
+      .ruby-content-desc-opts-cont-dot {
+        display: block;
+        float: left;
+        position: relative;
+        text-align: center;
+        vertical-align: top;
+        width: 20px;
+        font-size: 10px; }
+      .ruby-content-desc-opts-cont-text {
+        display: block;
+        height: auto;
+        margin-left: 20px;
+        padding-left: 3px;
+        position: relative;
+        text-align: left;
+        vertical-align: top;
+        width: auto; }
+        .ruby-content-desc-opts-cont-text p {
+          margin-bottom: 10px;
+          font-size: 12px;
+          color: #302A3D;
+          text-align: left;
+          display: block;
+          height: auto;
+          line-height: 1.1;
+          position: relative;
+          width: 100%; }
+  .ruby-content-desc-sep {
+    background-color: #D5D3DA;
+    bottom: 0;
+    display: block;
+    height: 1px;
+    position: absolute;
+    width: 100%;
+    margin-left: 20px; }
