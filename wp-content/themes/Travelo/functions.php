@@ -94,8 +94,19 @@ function my_custom_metabox_func() {
     <div class="input_fields_wrap">
         <a class="add_field_button button-secondary">Add Field</a>
         <?php
-        $args = array(
-            'quicktags' => false,
+        $settings =   array(
+            'wpautop' => true, //Whether to use wpautop for adding in paragraphs. Note that the paragraphs are added automatically when wpautop is false.
+            'media_buttons' => true, //Whether to display media insert/upload buttons
+            'textarea_name' => "content_itinerary[]", // The name assigned to the generated textarea and passed parameter when the form is submitted.
+            'textarea_rows' => get_option('default_post_edit_rows', 10), // The number of rows to display for the textarea
+            'tabindex' => '', //The tabindex value used for the form field
+            'editor_css' => '', // Additional CSS styling applied for both visual and HTML editors buttons, needs to include <style> tags, can use "scoped"
+            'editor_class' => '', // Any extra CSS Classes to append to the Editor textarea
+            'teeny' => false, // Whether to output the minimal editor configuration used in PressThis
+            'dfw' => false, // Whether to replace the default fullscreen editor with DFW (needs specific DOM elements and CSS)
+            'tinymce' => true, // Load TinyMCE, can be used to pass settings directly to TinyMCE using an array
+            'quicktags' => true, // Load Quicktags, can be used to pass settings directly to Quicktags using an array. Set to false to remove your editor's Visual and Text tabs.
+            'drag_drop_upload' => true //Enable Drag & Drop Upload Support (since WordPress 3.9)
         );
         if(isset($date_itinerary) && is_array($date_itinerary)) {
             $i = 1;
@@ -113,7 +124,7 @@ function my_custom_metabox_func() {
                             '</div>' .
                             '<div class="rwmb-field rwmb-textarea-wrapper editor">' .
                             '<label for="">Nội dung </label></div>';
-                echo '<div id="wp-content-editor-container" class="wp-editor-container">' . wp_editor($content_itinerary[$key], "content_itinerary[]") . '</div>';
+                echo '<div id="wp-content-editor-container" class="wp-editor-container">' . wp_editor($content_itinerary[$key], $text, $settings) . '</div>';
                 echo
                             '<div class="remove_field_itinerary_bt"><a href="#" class="remove_field_itinerary_a" data-editor_id="'. $key .'">Remove</a></div>' .
                             '</div>';
