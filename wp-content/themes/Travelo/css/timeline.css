@@ -63,7 +63,7 @@
   margin-right: 12px;
   background-color: #fff;
   display: block;
-  height: 496px;
+  max-height: 496px;
   position: relative;
   width: 100%; }
 

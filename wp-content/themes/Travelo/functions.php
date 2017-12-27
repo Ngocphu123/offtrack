@@ -75,3 +75,163 @@ function load_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'load_scripts');
+
+// My custom codes will be here
+add_action( 'admin_init', 'my_custom_codes_init_func' );
+
+function my_custom_codes_init_func() {
+    //$id, $title, $callback, $page, $context, $priority, $callback_args
+    add_meta_box("itinerary", 'Lịch trình', 'my_custom_metabox_func', 'tour', 'normal', 'low');
+}
+
+function my_custom_metabox_func() {
+    global $post;
+
+    $date_itinerary     =   get_post_meta($post->ID, 'date_itinerary', true);
+    $title_itinerary    =   get_post_meta($post->ID, 'title_itinerary', true);
+    $content_itinerary  =   get_post_meta($post->ID, 'content_itinerary', true);
+    ?>
+    <div class="input_fields_wrap">
+        <a class="add_field_button button-secondary">Add Field</a>
+        <?php
+        $args = array(
+            'quicktags' => false,
+        );
+        if(isset($date_itinerary) && is_array($date_itinerary)) {
+            $i = 1;
+            $output = '';
+            foreach($date_itinerary as $key => $text){
+                //echo $text;
+                echo '<div style="margin-top: 20px;margin-bottom: 20px;padding-bottom: 20px;border-bottom: 1px dotted #e5e5e5;">' .
+                            '<div class="rwmb-field rwmb-textarea-wrapper">' .
+                            '<div class="rwmb-label"><label for="">Ngày </label></div>' .
+                            '<div class="rwmb-input"><input type="text" name="date_itinerary[]" value="' . $text . '"/></div>' .
+                            '</div>' .
+                            '<div class="rwmb-field rwmb-textarea-wrapper">' .
+                            '<div class="rwmb-label"><label for="">Tiêu đề </label></div>' .
+                            '<div class="rwmb-input"><input type="text" name="title_itinerary[]" value="' . $title_itinerary[$key] . '"/></div>' .
+                            '</div>' .
+                            '<div class="rwmb-field rwmb-textarea-wrapper editor">' .
+                            '<label for="">Nội dung </label></div>';
+                echo '<div id="wp-content-editor-container" class="wp-editor-container">' . wp_editor($content_itinerary[$key], "content_itinerary[]") . '</div>';
+                echo
+                            '<div class="remove_field_itinerary_bt"><a href="#" class="remove_field_itinerary_a" data-editor_id="'. $key .'">Remove</a></div>' .
+                            '</div>';
+
+                $i++;
+            }
+        } else {
+            //echo '<div><input type="text" name="mytext[]"></div>';
+        }
+        ?>
+    </div>
+
+    <?php
+}
+add_action( 'admin_init', 'my_custom_codes_init_func' );
+
+add_action('save_post', 'save_my_post_meta');
+
+function save_my_post_meta($post_id) {
+    // Bail if we're doing an auto save
+    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+
+    // if our current user can't edit this post, bail
+    if( !current_user_can( 'edit_post' ) ) return;
+
+    // now we can actually save the data
+    $allowed = array(
+        'a' => array( // on allow a tags
+            'href' => array() // and those anchors can only have href attribute
+        )
+    );
+    // If any value present in input field, then update the post meta
+    if(isset($_POST['date_itinerary'])) {
+        // $post_id, $meta_key, $meta_value
+        update_post_meta( $post_id, 'date_itinerary', $_POST['date_itinerary'] );
+    }
+
+    if(isset($_POST['title_itinerary'])) {
+        // $post_id, $meta_key, $meta_value
+        update_post_meta( $post_id, 'title_itinerary', $_POST['title_itinerary'] );
+
+    }
+    if(isset($_POST['content_itinerary'])) {
+        // $post_id, $meta_key, $meta_value
+        update_post_meta( $post_id, 'content_itinerary', $_POST['content_itinerary'] );
+    }
+}
+
+add_action('admin_footer', 'my_admin_footer_script');
+
+function my_admin_footer_script() {
+    global $post;
+
+    $tilte_itinerary =   get_post_meta($post->ID, 'tilte_itinerary', true);
+    $x = 1;
+    if(is_array($tilte_itinerary)) {
+        $x = 0;
+        foreach($tilte_itinerary as $text){
+            $x++;
+        }
+    }
+    if(  'tour' == $post->post_type ) {
+        echo '
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+
+    // Dynamic input fields ( Add / Remove input fields )
+    var max_fields      = 50; //maximum input boxes allowed
+    var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+    var add_button      = $(".add_field_button"); //Add button ID
+    
+    var x = '.$x.'; //initlal text box count
+    $(add_button).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x <= max_fields){ //max input box allowed
+            x++; //text box increment
+            var html = \'<div style="    margin-top: 20px;margin-bottom: 20px;padding-bottom: 20px;border-bottom: 1px dotted #e5e5e5;">\'+
+             \'<div class="rwmb-field rwmb-textarea-wrapper">\'+
+             \'<div class="rwmb-label"><label for="">Ngày </label></div>\'+
+             \'<div class="rwmb-input"><input type="text" name="date_itinerary[]"/></div>\'+
+             \'</div>\'+
+             \'<div class="rwmb-field rwmb-textarea-wrapper">\'+
+             \'<div class="rwmb-label"><label for="">Tiêu đề </label></div>\'+
+             \'<div class="rwmb-input"><input type="text" name="title_itinerary[]"/></div>\'+
+             \'</div>\'+
+             \'<div class="rwmb-field rwmb-textarea-wrapper editor">\'+
+             \'<label for="">Nội dung </label></div>\'+
+             \'<div id="wp-content-editor-container" class="wp-editor-container"><textarea id="editor-\'+ x +\'" class="cn-wp-editor" name="content_itinerary[]"/></textarea>\'+
+             \'</div>\'+
+             \'<div class="remove_field_itinerary_bt"><a href="#" class="remove_field_itinerary_a" data-editor_id="\'+x+\'">Remove</a></div>\'+
+              \'</div>\';
+            $(wrapper).append(html);
+            tinymce.execCommand(\'mceAddEditor\', false, "editor-" +x);
+            
+        }
+    });
+
+    $(wrapper).on("click",".remove_field_itinerary_bt", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent(\'div\').remove();
+        var editor_id = $(this).attr(\'data-editor_id\');
+        tinymce.execCommand( \'mceRemoveEditor\', false, "editor-" +editor_id );
+    })
+});
+</script>
+                ';
+    }
+}
+/*add_action('admin_enqueue_scripts', 'admin_enqueue_scripts_func');
+
+function admin_enqueue_scripts_func() {
+    //$name, $src, $dependencies, $version, $in_footer
+    wp_enqueue_script( 'my-script', get_template_directory_uri() . '/js/dynamic-fields.js', array( 'jquery' ), '20160816', true );
+}*/
+add_action( 'admin_print_styles-post-new.php', 'tour_admin_style', 11 );
+add_action( 'admin_print_styles-post.php', 'tour_admin_style', 11 );
+
+function tour_admin_style() {
+    global $post_type;
+    if( 'tour' == $post_type )
+        wp_enqueue_style( 'tour-admin-style', get_stylesheet_directory_uri() . '/tour-admin.css' );
+}

@@ -852,7 +852,6 @@
                         : that.PFloat(style.marginTop) + that.PFloat(style.marginBottom);
 
 
-
                 /**
                  * SETUP SIZE DEPENDING ON EACH CASE
                  */
@@ -4177,18 +4176,20 @@
                  * SETUP ANIMATION WITH FIXED POSITION
                  */
                 AnimateX : function($obj, nx, isNoAnim, isPosFixed, speed, easing) {
-                    if (nx != -1 && nx != 1)
+                    if (nx >= 50)
                     {
                         nx = 1;
                     }
+
+
                     /**
                      * VALUE SETUP
                      * Object translate is '$obj' -> if not, select ''$swipeCur'
                      */
                     var $swipe = ($obj === null) ? va.$swipeCur : $obj,
-                        p      = $swipe.is($canvas.add(va.$s)) ? va.can : va.pag,
+                        p      = $swipe.is($canvas.add(va.$s)) ? va.can : va.pag;
                         // Position to go to
-                        x = isPosFixed ? nx : (- nx * p.sTranslate + p.xCanvas);
+                    var    x = isPosFixed ? nx : (- nx * p.sTranslate + p.xCanvas);
 
                     // Speed & easing of transition
                     speed  = speed || va.speed[cs.idCur];
