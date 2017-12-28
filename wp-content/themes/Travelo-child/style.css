@@ -231,7 +231,7 @@ a.button {
 }
 
 .tab-container .tab-content{
-    height: 400px;
+    max-height: 400px;
     overflow-y: auto;
 }
 
@@ -256,4 +256,13 @@ a.button {
 }
 .entry-content {
     margin-bottom: 50px;
+}
+.rt01flat>.rt01tabs.rt01pag-ver .rt01pagitem.rt01cur, .rt01flatbox>.rt01tabs.rt01pag-ver .rt01pagitem.rt01cur {
+    border-bottom-color: #f15e23 !important;
+}
+.rt01flat>.rt01pag-ver.rt01pag-begin {
+    border-right: 2px solid #f15e23 !important;;
+}
+.rt01flat>.rt01tabs .rt01pagitem.rt01cur, .rt01flatbox>.rt01tabs .rt01pagitem.rt01cur {
+    background-color: #f15e23 !important;;
 }
