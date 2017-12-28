@@ -238,19 +238,13 @@ a.button {
 #main-menu ul.menu > li:hover > a, .chaser ul.menu > li:hover > a {
 	color: #fff;
 }
-@media (max-width: 768px) {
-    .travelo-box {
-        padding: 0px;
+@media (max-width: 767px){
+    .tour-detail-page.container,
+    .tour-ralated.container{
+        padding:0;
     }
-    #tour-details .intro2 .table-cell
-    {
-        padding: 0px;
+    .border-box{
+        border: none;
     }
-    .border-box {
-        border:0px;
-    }
-    section#content {
-        background: #ffffff;
-    }
-}
 
+}
