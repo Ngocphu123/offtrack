@@ -65,9 +65,9 @@ function load_scripts() {
             case 'tour':
                 wp_enqueue_style( 'timeline', get_template_directory_uri() . '/css/timeline.css', false, '1.0', 'all' );
                 wp_enqueue_style( 'rubytabs', get_template_directory_uri() . '/css/rubytabs.css', false, '1.0', 'all' );
-                wp_enqueue_script('vendors', get_template_directory_uri() . '/js/vendors.min.js', array('jquery'), '1.6', true);
-                wp_enqueue_script('rubytabs', get_template_directory_uri() . '/js/rubytabs.js', array('jquery'), '1.6', true);
-                wp_enqueue_script('scrollable', get_template_directory_uri() . '/js/scrollable.min.js', array('jquery'), '1.6', true);
+                wp_enqueue_script('vendors', get_template_directory_uri() . '/js/vendors.min.js', array('jquery'), false, true);
+                wp_enqueue_script('rubytabs', get_template_directory_uri() . '/js/rubytabs.js', array('jquery'), false, true);
+                wp_enqueue_script('scrollable', get_template_directory_uri() . '/js/scrollable.min.js', array('jquery'), false, true);
                 //wp_enqueue_script('jssorslider', get_template_directory_uri() . '/js/jssor.slider.min.js', array('jquery'), '1.6', true);
                 break;
         }
@@ -159,17 +159,17 @@ function save_my_post_meta($post_id) {
     // If any value present in input field, then update the post meta
     if(isset($_POST['date_itinerary'])) {
         // $post_id, $meta_key, $meta_value
-        update_post_meta( $post_id, 'date_itinerary', $_POST['date_itinerary'] );
+        update_post_meta( $post_id, 'date_itinerary', isset($_POST['date_itinerary'])?$_POST['date_itinerary']:"" );
     }
 
     if(isset($_POST['title_itinerary'])) {
         // $post_id, $meta_key, $meta_value
-        update_post_meta( $post_id, 'title_itinerary', $_POST['title_itinerary'] );
+        update_post_meta( $post_id, 'title_itinerary', isset($_POST['title_itinerary'])?$_POST['title_itinerary']:"" );
 
     }
     if(isset($_POST['content_itinerary'])) {
         // $post_id, $meta_key, $meta_value
-        update_post_meta( $post_id, 'content_itinerary', $_POST['content_itinerary'] );
+        update_post_meta( $post_id, 'content_itinerary', isset($_POST['content_itinerary'])?$_POST['content_itinerary']:"" );
     }
 }
 
