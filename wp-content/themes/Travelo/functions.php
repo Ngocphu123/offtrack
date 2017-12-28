@@ -157,20 +157,9 @@ function save_my_post_meta($post_id) {
         )
     );
     // If any value present in input field, then update the post meta
-    if(isset($_POST['date_itinerary'])) {
-        // $post_id, $meta_key, $meta_value
         update_post_meta( $post_id, 'date_itinerary', isset($_POST['date_itinerary'])?$_POST['date_itinerary']:"" );
-    }
-
-    if(isset($_POST['title_itinerary'])) {
-        // $post_id, $meta_key, $meta_value
         update_post_meta( $post_id, 'title_itinerary', isset($_POST['title_itinerary'])?$_POST['title_itinerary']:"" );
-
-    }
-    if(isset($_POST['content_itinerary'])) {
-        // $post_id, $meta_key, $meta_value
         update_post_meta( $post_id, 'content_itinerary', isset($_POST['content_itinerary'])?$_POST['content_itinerary']:"" );
-    }
 }
 
 add_action('admin_footer', 'my_admin_footer_script');
@@ -201,6 +190,7 @@ jQuery(document).ready(function($) {
         e.preventDefault();
         if(x <= max_fields){ //max input box allowed
             x++; //text box increment
+            alert(x);
             var html = \'<div style="    margin-top: 20px;margin-bottom: 20px;padding-bottom: 20px;border-bottom: 1px dotted #e5e5e5;">\'+
              \'<div class="rwmb-field rwmb-textarea-wrapper">\'+
              \'<div class="rwmb-label"><label for="">Ngày </label></div>\'+
