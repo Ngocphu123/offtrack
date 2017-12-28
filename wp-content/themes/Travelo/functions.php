@@ -246,3 +246,13 @@ function tour_admin_style() {
     if( 'tour' == $post_type )
         wp_enqueue_style( 'tour-admin-style', get_stylesheet_directory_uri() . '/tour-admin.css' );
 }
+
+add_action( 'wp_enqueue_scripts', 'load_old_jquery_fix', 100 );
+
+function load_old_jquery_fix() {
+    if ( ! is_admin() ) {
+        wp_deregister_script( 'jquery' );
+        wp_register_script( 'jquery', ( "//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ), false, '1.11.3' );
+        wp_enqueue_script( 'jquery' );
+    }
+}
