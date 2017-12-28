@@ -231,8 +231,8 @@ a.button {
 }
 
 .tab-container .tab-content{
-    max-height: 15em;
-    overflow-y: scroll;
+    height: 400px;
+    overflow-y: auto;
 }
 
 #main-menu ul.menu > li:hover > a, .chaser ul.menu > li:hover > a {
@@ -253,4 +253,7 @@ a.button {
     section#content {
         background: #ffffff;
     }
+}
+.entry-content {
+    margin-bottom: 50px;
 }

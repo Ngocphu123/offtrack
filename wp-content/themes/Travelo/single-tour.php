@@ -125,7 +125,7 @@ if ( have_posts() ) {
                 <div class="itinerary_tour" style="margin-top: 2px">
                     <div class="mt-3 mb-1 title" style="margin-top: 0 !important;">
                         <h4 class="text-uppercase detail-title"><i class="fa fa-chevron-right"></i>&nbsp;Hành Trình</h4>
-                        <br/><br/>
+                        
                         <div class="" style="margin-bottom: 50px;padding: 0">
                             <!-- TABS - begin -->
                             <div class="tabs-preview rt01 rt01flat ruby" data-tabs='{
