@@ -124,7 +124,7 @@ function my_custom_metabox_func() {
                             '</div>' .
                             '<div class="rwmb-field rwmb-textarea-wrapper editor">' .
                             '<label for="">Nội dung </label></div>';
-                echo '<div id="wp-content-editor-container" class="wp-editor-container">' . wp_editor($content_itinerary[$key], $text, $settings) . '</div>';
+                echo '<div id="wp-content-editor-container" class="wp-editor-container">' . wp_editor($content_itinerary[$key], $key, $settings) . '</div>';
                 echo
                             '<div class="remove_field_itinerary_bt"><a href="#" class="remove_field_itinerary_a" data-editor_id="'. $key .'">Remove</a></div>' .
                             '</div>';
@@ -150,12 +150,6 @@ function save_my_post_meta($post_id) {
     // if our current user can't edit this post, bail
     if( !current_user_can( 'edit_post' ) ) return;
 
-    // now we can actually save the data
-    $allowed = array(
-        'a' => array( // on allow a tags
-            'href' => array() // and those anchors can only have href attribute
-        )
-    );
     // If any value present in input field, then update the post meta
         update_post_meta( $post_id, 'date_itinerary', isset($_POST['date_itinerary'])?$_POST['date_itinerary']:"" );
         update_post_meta( $post_id, 'title_itinerary', isset($_POST['title_itinerary'])?$_POST['title_itinerary']:"" );
