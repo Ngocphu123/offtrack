@@ -190,7 +190,6 @@ jQuery(document).ready(function($) {
         e.preventDefault();
         if(x <= max_fields){ //max input box allowed
             x++; //text box increment
-            alert(x);
             var html = \'<div style="    margin-top: 20px;margin-bottom: 20px;padding-bottom: 20px;border-bottom: 1px dotted #e5e5e5;">\'+
              \'<div class="rwmb-field rwmb-textarea-wrapper">\'+
              \'<div class="rwmb-label"><label for="">Ngày </label></div>\'+
