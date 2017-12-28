@@ -76,16 +76,19 @@ if ( have_posts() ) {
                         3 => 'Quy Định Đăng Ký Tour',
                         4 => 'Lưu ý',
                     ];
+                    $is_empty = true;
                     for ($i=1; $i <=4; $i++){
+                      if (!empty(get_field("title_tab{$i}", $tour_id))) {
+                          $is_empty = false;
+                      }
                       $tabs_content[] = [
                           'id'      => "no{$i}",
                           'title'   => (!empty(get_field("title_tab{$i}", $tour_id))) ? get_field("title_tab{$i}", $tour_id) : $title_default[$i],
                           'content' => get_field("content_tab{$i}", $tour_id),
                       ];
                     }
-
                     $html = ''; $html_title = ''; $html_content = '';
-                    if(!empty($tabs_content)){
+                    if($is_empty == false){
                       $html .= '<div class="tab-container clearfix style1">';
                         $count = 0;
                         $sum_arr = count($tabs_content);
@@ -118,7 +121,7 @@ if ( have_posts() ) {
                 $list_date_itinerary = get_field("date_itinerary", $tour_id);
                 $list_title_itinerary = get_field("title_itinerary", $tour_id);
                 $list_content_itinerary = get_field("content_itinerary", $tour_id);
-                ?>
+                if (!empty($list_date_itinerary)): ?>
                 <div class="itinerary_tour" style="margin-top: 2px">
                     <div class="mt-3 mb-1 title" style="margin-top: 0 !important;">
                         <h4 class="text-uppercase detail-title"><i class="fa fa-chevron-right"></i>&nbsp;Hành Trình</h4>
@@ -185,6 +188,7 @@ if ( have_posts() ) {
                         <!-- RUBY TABS - end ======================================================================== -->
                     </div>
                 </div>
+                <?php  endif;?>
             </div>
                   <?php comments_template(); ?>
 						</div>
