@@ -277,3 +277,6 @@ a.button {
 .social-icons li.instagram a:hover{
 	background: #d10869;
 }
+.blog-infinite .post .entry-title, .single .post .entry-title {
+    margin-left: 50px;
+}
