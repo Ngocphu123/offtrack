@@ -266,3 +266,14 @@ a.button {
 .rt01flat>.rt01tabs .rt01pagitem.rt01cur, .rt01flatbox>.rt01tabs .rt01pagitem.rt01cur {
     background-color: #f15e23 !important;;
 }
+
+/* Begin css for social */
+.social-icons li.facebook a:hover{
+		background: #77B7E7;
+}
+.social-icons li.youtube a:hover{
+		background: #f9160a;
+}
+.social-icons li.instagram a:hover{
+	background: #d10869;
+}
