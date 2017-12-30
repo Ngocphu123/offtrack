@@ -69,7 +69,7 @@ if ( have_posts() ) {
                     <?php endif; ?>
                     <?php $video_tour = get_field("video_tour", $tour_id);
                     if (!empty($video_tour)) :?>
-                        <div class="block-video">
+                        <div class="block-video embed-responsive embed-responsive-16by9 video-detail">
                             <iframe class="embed-responsive-item"
                                     src="<?php echo $video_tour ;?>">
                             </iframe>
