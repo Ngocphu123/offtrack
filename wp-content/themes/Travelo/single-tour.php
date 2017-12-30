@@ -66,7 +66,8 @@ if ( have_posts() ) {
                     <div id="map1" style="width: 100%; height: 255px; position: relative; overflow: hidden; margin-bottom: 15px;">
                       <?php echo $maps; ?>
                     </div>
-                    <?php $video_tour = get_field("video_tour", $tour_id); echo $video_tour;die;
+                    <?php endif; ?>
+                    <?php $video_tour = get_field("video_tour", $tour_id);
                     if (!empty($video_tour)) :?>
                         <div class="block-video">
                             <iframe class="embed-responsive-item"
@@ -74,7 +75,7 @@ if ( have_posts() ) {
                             </iframe>
                         </div>
                     <?php endif;?>
-              <?php endif; ?>
+
                     <?php the_content(); ?>
                     <?php
                     $list_date_itinerary = get_field("date_itinerary", $tour_id);
