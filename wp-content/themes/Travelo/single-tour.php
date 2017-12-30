@@ -66,7 +66,7 @@ if ( have_posts() ) {
                     <div id="map1" style="width: 100%; height: 255px; position: relative; overflow: hidden; margin-bottom: 15px;">
                       <?php echo $maps; ?>
                     </div>
-                    <?php $video_tour = get_field("video_tour", $tour_id);
+                    <?php $video_tour = get_field("video_tour", $tour_id); echo $video_tour;die;
                     if (!empty($video_tour)) :?>
                         <div class="block-video">
                             <iframe class="embed-responsive-item"
