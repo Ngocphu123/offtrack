@@ -11,6 +11,11 @@ global $trav_options, $logo_url;
 				<span class="contact-phone"><i class="soap-icon-phone circle"></i> <?php echo esc_html( $trav_options['phone_no'] ) ?></span>
 			</address>
 		<?php } ?>
+        <?php if ( ! empty ( $trav_options['email'] ) ) { ?>
+            <address class="contact-details">
+                <span class="contact-phone"><i class="soap-icon-message circle"></i> <?php echo esc_html( $trav_options['email'] ) ?></span>
+            </address>
+        <?php } ?>
 		<ul class="social-icons style2 clearfix">
 			<?php
 				$social_links = array( 'twitter', 'googleplus', 'facebook', 'linkedin', 'youtube', 'pinterest', 'vimeo', 'skype', 'instagram', 'dribble', 'flickr', 'tumblr', 'behance' );
@@ -44,8 +49,11 @@ global $trav_options, $logo_url;
 					</a>
 				</div>
 			<?php }	?>
-		<?php if ( has_nav_menu( 'header-menu' ) ) {
-					wp_nav_menu( array( 'theme_location' => 'header-menu', 'container' => 'nav', 'menu_class' => 'menu', 'walker'=>new Trav_Walker_Nav_Menu ) ); 
+		<?php if ( has_nav_menu( 'header-menu' ) ) {?>
+            <!--<div class="logo-left"><img src="<?php /*echo esc_url( $logo_url ); */?>" alt="<?php /*bloginfo('name'); */?>"> </div>-->
+
+            <!--		    <div><img src="--><?php //echo get_template_directory_uri(); ?><!--/images/logo-offtrack.png ?>" alt="--><?php //bloginfo('name'); ?><!--"> </div>-->
+			<?php		wp_nav_menu( array( 'theme_location' => 'header-menu', 'container' => 'nav', 'menu_class' => 'menu', 'walker'=>new Trav_Walker_Nav_Menu ) );
 			} else { ?>
 				<nav class="menu-my-menu-container container">
 					<ul class="menu">

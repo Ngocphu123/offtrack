@@ -66,8 +66,88 @@ if ( have_posts() ) {
                     <div id="map1" style="width: 100%; height: 255px; position: relative; overflow: hidden; margin-bottom: 15px;">
                       <?php echo $maps; ?>
                     </div>
+                    <?php $video_tour = get_field("video_tour", $tour_id);
+                    if (!empty($video_tour)) :?>
+                        <div class="block-video">
+                            <iframe class="embed-responsive-item"
+                                    src="<?php echo $video_tour ;?>">
+                            </iframe>
+                        </div>
+                    <?php endif;?>
               <?php endif; ?>
                     <?php the_content(); ?>
+                    <?php
+                    $list_date_itinerary = get_field("date_itinerary", $tour_id);
+                    $list_title_itinerary = get_field("title_itinerary", $tour_id);
+                    $list_content_itinerary = get_field("content_itinerary", $tour_id);
+                    if (!empty($list_date_itinerary)): ?>
+                        <div class="itinerary_tour" style="margin-top: 2px">
+                            <div class="mt-3 mb-1 title" style="margin-top: 0 !important;">
+                                <h4 class="text-uppercase detail-title"><i class="fa fa-chevron-right"></i>&nbsp;Hành Trình</h4>
+
+                                <div class="" style="margin-bottom: 50px;padding: 0">
+                                    <!-- TABS - begin -->
+                                    <div class="tabs-preview rt01 rt01flat ruby" data-tabs='{
+                                    "fx": "coverflow3D",
+                                    "cssFourNextOut" : "roEdgeLeftOut",
+                                    "cssFourNextIn"  : "roEdgeRightIn",
+                                    "cssFourPrevOut" : "roEdgeRightOut",
+                                    "cssFourPrevIn"  : "roEdgeLeftIn",
+                                    "speed": 800,
+                                    "pag": { "direction" : "ver", "widthMinToHor": 747}}'>
+                                        <?php foreach ($list_date_itinerary as $key => $date):?>
+                                            <div class="ruby-tab">
+                                                <div class="rt01pagitem"><div class="ruby-tab-title"><i class = "ft-clock"></i>&nbsp;<?php echo $date;?></div>
+                                                </div>
+                                                <div class="ruby-body">
+                                                    <div class="ruby-inner">
+                                                        <div class="ruby-header">
+                                                            <div class="ruby-header-wrapper">
+                                                                <div class="ruby-header-text">
+                                                        <span class="ruby-header-text-main">
+                                                          <i class = "ft-clock"></i>&nbsp;<?php echo $date;?>:
+                                                          <span class="ruby-header-text-sub"><?php echo $list_title_itinerary[$key];?></span>
+                                                        </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ruby-content">
+                                                            <div class="ruby-content-wrapper default-wheel-speed scroll-example">
+                                                                <div class="ruby-content-inner">
+                                                                    <div class="ruby-content-table">
+                                                                        <div class="ruby-content-row ruby-content-row--notFirst row">
+                                                                            <div class="ruby-content-cell--left col-md-1">
+                                                                                <span class="ruby-content-cell--marker"><i class="fa fa-dot-circle-o"></i></span>
+                                                                                <span class="ruby-content-cell--roadLine"></span>
+                                                                            </div>
+                                                                            <div class="ruby-content-cell--right col-md-11">
+                                                                                <div class="ruby-content-desc-wrapper row">
+                                                                                    <div class="ruby-content-desc-main col-md-12">
+
+                                                                                        <div class="ruby-content-desc-main-desc">
+                                                                                            <?php echo $list_content_itinerary[$key];?>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php endforeach;?>
+
+                                    </div>
+                                    <!-- TABS - end -->
+
+                                </div>
+                                <!-- RUBY TABS - end ======================================================================== -->
+                            </div>
+                        </div>
+                    <?php  endif;?>
                     <?php
                     $tabs_content = array();
                     $title_default = [
@@ -117,78 +197,7 @@ if ( have_posts() ) {
 
                     ?>
                 </div>
-                <?php
-                $list_date_itinerary = get_field("date_itinerary", $tour_id);
-                $list_title_itinerary = get_field("title_itinerary", $tour_id);
-                $list_content_itinerary = get_field("content_itinerary", $tour_id);
-                if (!empty($list_date_itinerary)): ?>
-                <div class="itinerary_tour" style="margin-top: 2px">
-                    <div class="mt-3 mb-1 title" style="margin-top: 0 !important;">
-                        <h4 class="text-uppercase detail-title"><i class="fa fa-chevron-right"></i>&nbsp;Hành Trình</h4>
-                        
-                        <div class="" style="margin-bottom: 50px;padding: 0">
-                            <!-- TABS - begin -->
-                            <div class="tabs-preview rt01 rt01flat ruby" data-tabs='{
-                                    "fx": "coverflow3D",
-                                    "cssFourNextOut" : "roEdgeLeftOut",
-                                    "cssFourNextIn"  : "roEdgeRightIn",
-                                    "cssFourPrevOut" : "roEdgeRightOut",
-                                    "cssFourPrevIn"  : "roEdgeLeftIn",
-                                    "speed": 800,
-                                    "pag": { "direction" : "ver", "widthMinToHor": 747}}'>
-                                <?php foreach ($list_date_itinerary as $key => $date):?>
-                                    <div class="ruby-tab">
-                                        <div class="rt01pagitem"><div class="ruby-tab-title"><i class = "ft-clock"></i>&nbsp;<?php echo $date;?></div>
-                                        </div>
-                                        <div class="ruby-body">
-                                            <div class="ruby-inner">
-                                                <div class="ruby-header">
-                                                    <div class="ruby-header-wrapper">
-                                                        <div class="ruby-header-text">
-                                                        <span class="ruby-header-text-main">
-                                                          <i class = "ft-clock"></i>&nbsp;<?php echo $date;?>:
-                                                          <span class="ruby-header-text-sub"><?php echo $list_title_itinerary[$key];?></span>
-                                                        </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="ruby-content">
-                                                    <div class="ruby-content-wrapper default-wheel-speed scroll-example">
-                                                        <div class="ruby-content-inner">
-                                                            <div class="ruby-content-table">
-                                                                <div class="ruby-content-row ruby-content-row--notFirst row">
-                                                                    <div class="ruby-content-cell--left col-md-1">
-                                                                        <span class="ruby-content-cell--marker"><i class="fa fa-dot-circle-o"></i></span>
-                                                                        <span class="ruby-content-cell--roadLine"></span>
-                                                                    </div>
-                                                                    <div class="ruby-content-cell--right col-md-11">
-                                                                        <div class="ruby-content-desc-wrapper row">
-                                                                            <div class="ruby-content-desc-main col-md-12">
 
-                                                                                <div class="ruby-content-desc-main-desc">
-                                                                                    <?php echo $list_content_itinerary[$key];?>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php endforeach;?>
-
-                            </div>
-                            <!-- TABS - end -->
-
-                        </div>
-                        <!-- RUBY TABS - end ======================================================================== -->
-                    </div>
-                </div>
-                <?php  endif;?>
             </div>
                   <?php comments_template(); ?>
 						</div>
