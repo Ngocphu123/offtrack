@@ -217,7 +217,7 @@ a.button {
     min-height: 504px;
 }
 .offtrack-list-posts .box{
-    min-height: 312px;
+    min-height: 315px;
 }
 .icon-box.style5>i {
     display: block;
@@ -309,4 +309,6 @@ a.button {
 .video-detail {
     margin-bottom: 30px;
 }
-
+body {
+    color: #000000;
+}
